@@ -43,9 +43,10 @@ html {
     background-color: lightblue;
     border-radius: 5px;
     text-align: center;
-    margin-top: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
     margin: 1%;
-    flex: 0 0 20%;
+    flex: 0 0 5%;
 }
 
 #apero-list {
@@ -56,6 +57,14 @@ html {
     overflow: scroll;
     /*height: 50%;*/
     flex: 1 1 main-size;
+}
+
+#apero-item {
+    width: 100%;
+}
+
+#apero-item:hover {
+    background-color: red;
 }
 
 .reset-margin {
