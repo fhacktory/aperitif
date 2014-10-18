@@ -36,8 +36,9 @@ function apero_item_click() {
 }
 
 function select_apero_item(apero) {
+    var date = new Date(apero.details.created);
     apero.innerHTML = apero.details.username + " - " + apero.details.location +
-                    "<br>" + apero.details.time +
+                    "<br>" + date.getHours() + "h" + date.getMinutes() +
                     "<br>" + apero.details.msg;
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
