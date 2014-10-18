@@ -1,3 +1,17 @@
+feston_aperitif_list_semaphore:
+    pattern: /v1/semaphore.{_format}
+    defaults: { _controller: FestonAperitifBundle:Semaphore:list }
+    requirements:
+        _method:  GET
+
 feston_aperitif_create_semaphore:
     pattern: /v1/semaphore.{_format}
     defaults: { _controller: FestonAperitifBundle:Semaphore:create }
+    requirements:
+        _method:  POST
+
+feston_aperitif_update_semaphore:
+    pattern: /v1/semaphore/{publicId}.{_format}
+    defaults: { _controller: FestonAperitifBundle:Semaphore:update }
+    requirements:
+        _method:  POST
