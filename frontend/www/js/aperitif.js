@@ -111,7 +111,7 @@ function go_to_panel(new_panel) {
         return;
     }
 
-    if (current_edit_panel.on_hide) {
+    if (current_edit_panel && current_edit_panel.on_hide) {
         current_edit_panel.on_hide();
     }
 
