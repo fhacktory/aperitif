@@ -138,7 +138,7 @@ function refresh_apero_list() {
     }
   }
 
-  listSemaphore(function on_success(apero_array) {
+  listAperitif(function on_success(apero_array) {
     var i;
 
     if(apero_array.length === 0) {

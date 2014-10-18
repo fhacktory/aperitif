@@ -1,8 +1,8 @@
 /**
 
-Example #1 - list semaphores
+Example #1 - list aperitifs
 
-listSemaphore(function(data) {
+listAperitif(function(data) {
   console.log(data);
 }, function(e) {
   console.log(e);
@@ -10,9 +10,9 @@ listSemaphore(function(data) {
 
 
 
-Example #2 - create a semaphore
+Example #2 - create a aperitif
 
-createSemaphore(
+createAperitif(
   'papa delta',
   'caves pop',
   function(data) {
@@ -23,9 +23,9 @@ createSemaphore(
   }
 );
 
-Example #3 - update a semaphore
+Example #3 - update a aperitif
 
-updateSemaphore(
+updateAperitif(
   '8vf79ww49z',
   'dgii89ziy7',
   'dtc',
@@ -39,8 +39,8 @@ updateSemaphore(
 
 **/
 
-function listSemaphore(onsuccess, onfailure) {
-  var url = "http://aperitif.feston.me/v1/semaphore.json";
+function listAperitif(onsuccess, onfailure) {
+  var url = "http://aperitif.feston.me/v1/aperitif.json";
   XHR(url, "GET", null, function(data) {
     onsuccess(JSON.parse(data));
   },
@@ -49,9 +49,9 @@ function listSemaphore(onsuccess, onfailure) {
   });
 }
 
-function createSemaphore(username, location, onsuccess, onfailure) {
+function createAperitif(username, location, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.feston.me/v1/semaphore.json";
+  var url = "http://aperitif.feston.me/v1/aperitif.json";
 
   var formData = new FormData();
   formData.append("username", username);
@@ -65,9 +65,9 @@ function createSemaphore(username, location, onsuccess, onfailure) {
   });
 }
 
-function updateSemaphore(publicId, privateId, location, onsuccess, onfailure) {
+function updateAperitif(publicId, privateId, location, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.feston.me/v1/semaphore/" + publicId + ".json";
+  var url = "http://aperitif.feston.me/v1/aperitif/" + publicId + ".json";
 
   var formData = new FormData();
   formData.append("privateId", privateId);
