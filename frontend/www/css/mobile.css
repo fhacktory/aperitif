@@ -34,18 +34,33 @@ html {
     flex: none;
     margin-left: 2%;
     margin-right: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    font-size: 0.6em;
+    text-align: right;
 }
 
 #apero-button {
-    flex: 0 0 5%;
+    flex: 0 0 10%;
     border-radius: 5px;
+    background-image: url(../images/logo-256.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: 2%, 2%;
     background-color: #80e5ff;
     box-shadow: 0px 3px #0f94b5;
     text-align: center;
+    margin: 2%;
+    padding: 2%;
+}
+
+#logo-img {
+    width: 20%;
+    float: left;
+}
+
+#apero-label {
     padding-top: 5%;
     padding-bottom: 5%;
-    margin: 2%;
 }
 
 #edit-panel {

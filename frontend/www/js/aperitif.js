@@ -27,6 +27,11 @@ function on_load() {
     for (var item in fake_aperitifs) {
         append_apero(list_view, fake_aperitifs[item]);
     }
+    set_user_name("Nical");
+}
+
+function set_user_name(name) {
+    document.querySelector("#top").innerHTML = name;
 }
 
 function apero_click() {
@@ -41,9 +46,11 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
+        document.querySelector("#apero-label").innerHTML = "Apéro!"
         selected_item = null;
     } else {
         select_apero_item(this);
+        document.querySelector("#apero-label").innerHTML = "Join!"
         selected_item = this;
     }
 }
