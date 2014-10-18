@@ -59,8 +59,12 @@ html {
 }
 
 #apero-label {
-    padding-top: 5%;
+    padding-top: 3%;
     padding-bottom: 5%;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 10vw;
+    color: #0055d4;
 }
 
 #edit-panel {
@@ -70,16 +74,17 @@ html {
     margin-left: 2%;
     margin-right: 2%;
     overflow: scroll;
+    height: 100%
 }
 
 #apero-list {
 }
 
 .apero-item {
-    width: 92%;
+    width: 90%;
     border-radius: 5px;
     padding: 3%;
-    margin: 1%;
+    margin: 2%;
 }
 
 .no-apero-item {
@@ -92,9 +97,45 @@ html {
 
 .selected {
     background-color: white;
+    box-shadow: 0px 3px #999;
 }
 
 .reset-margin {
     margin: 0px;
     padding: 0px;    
+}
+
+.button-pair {
+    width: 100%;
+}
+
+#apero-wizard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wizard-field {
+    flex: 0 0 auto%;
+    text-align: center;
+}
+
+.wizard-field > input {
+    width: 94%;
+    margin: 2%;
+}
+
+#apero-wizard > textarea {
+    flex: 3 1 auto;
+    width: 94%;
+    height: auto;
+    margin: 2%;
+}
+
+.button-pair > button {
+    flex: 0 0 10%;
+    width: 50%;
+    margin: 0px;
+    float: left;
 }

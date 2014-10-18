@@ -2,13 +2,28 @@
 function on_load() {
     set_user_name("Nical");
 
-    // init the apero list div and style
-    apero_list = document.createElement("div");
-    apero_list.id = "apero-list";
+    apero_list = document.querySelector("#apero-list");
+    apero_wizard = document.querySelector("#apero-wizard");
+
+    // add fake items
+    //for (var item in fake_aperitifs) {
+    //    append_apero(apero_list, fake_aperitifs[item]);
+    //}
 
     refresh_apero_list();
 
+    // remove all panels from the dom...
+    var container = document.querySelector("#edit-panel");
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+
+    // ...and add back the one we want
     go_to_panel(apero_list);
+
+    //if (navigator.mozApps) {
+    //    var installRequest = navigator.mozApps.install("manifest.webapp");
+    //}
 }
 
 function set_user_name(name) {
@@ -17,8 +32,18 @@ function set_user_name(name) {
 
 function apero_click() {
     console.log("Apéro!!");
+    if (current_edit_panel == apero_list) {
+        if (!selected_item) {
+            go_to_panel(apero_wizard);
+        } else {
+
+        }
+    }
 }
 
+function wizard_cancel() {
+    go_to_panel(apero_list);
+}
 
 function apero_item_click() {
     if (selected_item && selected_item != this) {
@@ -75,11 +100,14 @@ function remove_all_aperos() {
     }
 }
 
+// in the apero_list, currently selected apero
 var selected_item =  null;
-var current_edit_panel = null;
+// the different panels
 var apero_list = null;
 var apero_wizard = null;
 var start_page = null;
+// one of the above (currently active)
+var current_edit_panel = null;
 
 function go_to_panel(new_panel) {
     if (current_edit_panel == new_panel) {

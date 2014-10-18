@@ -20,9 +20,30 @@
         </div>
 
         <div id="edit-panel">
+
             <div id="apero-list">
-                <!-- inserted in js -->
+                <!-- content inserted from js -->
             </div>
+
+            <div id="apero-wizard">
+                <div class="wizard-field">
+                    <br>Name:
+                    <input type="text" id="apero-name-input"> </input>
+<!--                </div>
+                <div class="wizard-field">
+-->
+                    <br>Address:
+                    <input type="text" id="apero-address-input"> </input>
+                    <br>Message:
+                </div>
+                <textarea id="apero-message-input"> </textarea>
+
+                <div class="button-pair">
+                    <button id="apero-cancel" onclick="wizard_cancel()"> cancel </button>
+                    <button id="apero-ok" onclick="wizard_ok()"> Ok </button>
+                </div>
+            </div>
+
         </div>
         <div id="footer">
             Brought to you by feston.
