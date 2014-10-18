@@ -11,8 +11,8 @@ feston_aperitif_aperitif_create:
         _method:  POST
 
 feston_aperitif_aperitif_attendee:
-    pattern: /v1/aperitif/{id}/{_format}
-    defaults: { _controller: FestonAperitifBundle:Aperitif:addAttendee }
+    pattern: /v1/aperitif/{id}.{_format}
+    defaults: { _controller: FestonAperitifBundle:Aperitif:manageAttendee }
     requirements:
         _method:  POST
 

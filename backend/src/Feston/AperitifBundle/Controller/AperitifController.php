@@ -15,17 +15,7 @@ class AperitifController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $aperitifs = $em->getRepository('FestonAperitifBundle:Aperitif')->findAll();
 
-        $data = array();
-        foreach ($aperitifs as $aperitif) {
-            $data[] = array(
-                'created' => $aperitif->getCreated(),
-                'publicId' => $aperitif->getPublicId(),
-                'username' => $aperitif->getUsername(),
-                'location' => $aperitif->getLocation(),
-            );
-        }
-
-        $view = $this->view($data, 200);
+        $view = $this->view($aperitifs, 200);
 
         return $this->handleView($view);
     }
@@ -34,16 +24,27 @@ class AperitifController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $username = $request->request->get('username', null);
-        $location = $request->request->get('location', 'not provided');
+        $userId = $request->request->get('userId', null);
+        $location = $request->request->get('location', null);
+        $message = $request->request->get('message', null);
 
-        if ($username !== null) {
-            $aperitif = new Aperitif($username, $location);
+        $user = $em->getRepository('FestonAperitifBundle:User')->find($userId);
+        if (!$user) {
+            $data = array('msg' => "User not found.");
+            $view = $this->view($data, 404);
+
+            return $this->handleView($view);
+        }
+
+        if ($location !== null) {
+            $aperitif = new Aperitif($location);
+            $aperitif->addAttendee($user);
+            $aperitif->setMessage($message);
             $em->persist($aperitif);
             $em->flush();
             $data = array(
-                'created' => $aperitif->getCreated(),
                 'id' => $aperitif->getId(),
+                'created' => $aperitif->getCreated(),
             );
             $view = $this->view($data, 200);
         } else {
@@ -54,7 +55,7 @@ class AperitifController extends FOSRestController
         return $this->handleView($view);
     }
 
-    public function attendeeAction(Request $request, $id, $action)
+    public function manageAttendeeAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -66,7 +67,7 @@ class AperitifController extends FOSRestController
             return $this->handleView($view);
         }
 
-        $userId = $request->request->get('id', null);
+        $userId = $request->request->get('userId', null);
         $user = $em->getRepository('FestonAperitifBundle:User')->find($userId);
         if (!$user) {
             $data = array('msg' => "User not found.");
@@ -77,7 +78,7 @@ class AperitifController extends FOSRestController
 
         $action = $request->request->get('action', null);
         $authorizedActions = array('add', 'remove');
-        if ($action == null || !in_array($action, $authorizedActions)) {
+        if (!in_array($action, $authorizedActions)) {
             $data = array('msg' => "Wrong action.");
             $view = $this->view($data, 400);
 
@@ -87,11 +88,14 @@ class AperitifController extends FOSRestController
         if ($action == 'add') {
             $aperitif->addAttendee($user);
             $em->flush();
-
-            $data = array('msg' => "User now attend this event.");
-            $view = $this->view($data, 200);
-
-            return $this->handleView($view);
+            $data = array('msg' => "User now attends this event.");
+        } elseif ($action == 'remove') {
+            $aperitif->removeAttendee($user);
+            $em->flush();
+            $data = array('msg' => "User now doesn't attend this event.");
         }
+        $view = $this->view($data, 200);
+
+        return $this->handleView($view);
     }
 }
