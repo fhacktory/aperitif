@@ -2,6 +2,7 @@
 
 namespace Feston\AperitifBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,10 +36,23 @@ class Aperitif
      */
     private $location;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="string", length=255)
+     */
+    private $message;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Feston\AperitifBundle\Entity\User")
+     */
+    protected $attendees;
+
     public function __construct($location)
     {
         $this->created = new \DateTime();
         $this->location = $location;
+        $this->attendees = new ArrayCollection();
     }
 
 
@@ -96,5 +110,61 @@ class Aperitif
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     * @return Aperitif
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Add attendees
+     *
+     * @param \Feston\AperitifBundle\Entity\User $attendees
+     * @return Aperitif
+     */
+    public function addAttendee(\Feston\AperitifBundle\Entity\User $attendee)
+    {
+        $this->attendees[] = $attendee;
+
+        return $this;
+    }
+
+    /**
+     * Remove attendees
+     *
+     * @param \Feston\AperitifBundle\Entity\User $attendees
+     */
+    public function removeAttendee(\Feston\AperitifBundle\Entity\User $attendee)
+    {
+        $this->attendees->removeElement($attendee);
+    }
+
+    /**
+     * Get attendees
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAttendees()
+    {
+        return $this->attendees;
     }
 }
