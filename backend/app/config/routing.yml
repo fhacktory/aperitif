@@ -1,0 +1,3 @@
+feston_aperitif:
+    resource: "@FestonAperitifBundle/Resources/config/routing.yml"
+    prefix:   /

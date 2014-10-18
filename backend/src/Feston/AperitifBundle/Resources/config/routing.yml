@@ -1,0 +1,3 @@
+feston_aperitif_create_semaphore:
+    pattern: /v1/semaphore.{_format}
+    defaults: { _controller: FestonAperitifBundle:Semaphore:create }
