@@ -18,6 +18,8 @@ html {
 }
 
 .auto-width { width: auto; }
+.hidden { visibility: hidden; }
+
 
 #test {
     background-color: red;
@@ -47,7 +49,6 @@ html {
     background-position: 2%, 2%;
     background-color: #80e5ff;
     box-shadow: 0px 3px #0f94b5;
-    border:none;
     text-align: center;
     margin: 2%;
 
@@ -75,6 +76,36 @@ html {
     margin-right: 2%;
     overflow: scroll;
     height: 100%
+}
+
+#user-setup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+    background-color: ffdead;
+    border-radius: 5px;
+}
+
+#user-setup > div {
+    flex: 1 1 main-size;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#user-setup > div > input {
+    width: 92%;
+    margin: 2%;
+}
+
+#user-setup > button {
+    flex: none;
+    width: 96%;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 #apero-list {
@@ -122,11 +153,7 @@ html {
 
 .wizard-field > input {
     width: 96%;
-    padding:2%;
     margin: 0%;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
 }
 
 #apero-wizard > textarea {
@@ -145,34 +172,54 @@ html {
     margin-bottom: 3px;
 }
 
+button {
+    border: none;
+}
+
+input {
+    padding:2%;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
 .button-pair > button {
     flex: 0 0 10%;
     width: 48%;
     float: left;
-    border: medium none;
     border-radius: 6px;
     margin-top: 2%;
     height: 32px;
 }
 
 #apero-cancel {
-    background-color: rgba(254, 118, 44, 1);
-    box-shadow: 0px 3px rgba(158, 44, 44, 1);
     margin-right: 1%;
 }
+#apero-ok {
+    margin-left: 1%;
+}
 
-#apero-cancel:active {
+.grey-button {
+    background-color: rgba(200, 200, 200, 1);
+    box-shadow: 0px 3px rgba(120, 120, 120, 1);
+}
+
+.red-button {
+    background-color: rgba(254, 118, 44, 1);
+    box-shadow: 0px 3px rgba(158, 44, 44, 1);
+}
+
+.green-button {
+    background-color: rgba(106, 221, 107, 1);
+    box-shadow: 0px 3px rgba(13, 113, 7, 1);
+}
+
+.red-button:active {
     background-color: rgba(255, 206, 150, 1);
     box-shadow: 0px 3px rgba(249, 141, 50, 1);
 }
 
-#apero-ok {
-    background-color: rgba(106, 221, 107, 1);
-    box-shadow: 0px 3px rgba(13, 113, 7, 1);
-    margin-left: 1%;
-}
-
-#apero-ok:active {
+.green-button:active {
     background-color: rgba(164, 245, 165, 1);
     box-shadow: 0px 3px rgba(29, 170, 20, 1);
 }

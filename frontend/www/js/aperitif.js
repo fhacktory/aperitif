@@ -4,6 +4,7 @@ function on_load() {
 
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
+    user_setup = document.querySelector("#user-setup");
 
     refresh_apero_list();
 
@@ -14,7 +15,7 @@ function on_load() {
     }
 
     // ...and add back the one we want
-    go_to_panel(apero_list);
+    go_to_panel(user_setup);
 
     if (navigator.userAgent.match(/Android/)) {
       document.addEventListener("deviceready", onDeviceReady, false);
@@ -32,6 +33,19 @@ function on_load() {
     //if (navigator.mozApps) {
     //    var installRequest = navigator.mozApps.install("manifest.webapp");
     //}
+
+    apero_list.classList.remove("hidden");
+    apero_wizard.classList.remove("hidden");
+    user_setup.classList.remove("hidden");
+}
+
+function create_user_click() {
+    var name = "" + document.getElementById("user-name-input").value;
+    if (name.length > 0) {
+        set_user_name(name);
+        document.querySelector("#apero-button").classList.remove("hidden");
+        go_to_panel(apero_list);
+    }
 }
 
 function set_user_name(name) {
@@ -59,11 +73,11 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
-        //document.querySelector("#apero-label").innerHTML = "Apéro!";
+        document.querySelector("#apero-button").innerHTML = "Apéro!";
         selected_item = null;
     } else {
         select_apero_item(this);
-        //document.querySelector("#apero-label").innerHTML = "Join!";
+        document.querySelector("#apero-button").innerHTML = "Join!";
         selected_item = this;
     }
 }
@@ -144,8 +158,7 @@ function refresh_apero_list() {
 
     if(show) {
       apero_list.appendChild(noAperoDiv);
-    }
-    else {
+    } else {
       try {apero_list.removeChild(noAperoDiv);}
       catch(e) {}
     }
