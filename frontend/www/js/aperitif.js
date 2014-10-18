@@ -41,6 +41,10 @@ function on_load() {
 
     // ...and add back the one we want
     go_to_panel(apero_list);
+
+    //if (navigator.mozApps) {
+    //    var installRequest = navigator.mozApps.install("manifest.webapp");
+    //}
 }
 
 function set_user_name(name) {

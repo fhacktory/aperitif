@@ -59,8 +59,12 @@ html {
 }
 
 #apero-label {
-    padding-top: 5%;
+    padding-top: 3%;
     padding-bottom: 5%;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 10vw;
+    color: #0055d4;
 }
 
 #edit-panel {
@@ -70,20 +74,22 @@ html {
     margin-left: 2%;
     margin-right: 2%;
     overflow: scroll;
+    height: 100%
 }
 
 #apero-list {
 }
 
 .apero-item {
-    width: 92%;
+    width: 90%;
     border-radius: 5px;
     padding: 3%;
-    margin: 1%;
+    margin: 2%;
 }
 
 .selected {
     background-color: white;
+    box-shadow: 0px 3px #999;
 }
 
 .reset-margin {
