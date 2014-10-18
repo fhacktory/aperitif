@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="apero.svg">
+   sodipodi:docname="mockup.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="87.905891"
-     inkscape:cy="117.00339"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="293.81469"
+     inkscape:cy="309.8319"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -325,66 +325,77 @@
          x="606"
          id="tspan3046"
          sodipodi:role="line">Apéro !</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3163"
+       width="273.75134"
+       height="87.046425"
+       x="528.30975"
+       y="523.87909"
+       ry="9.8984747" />
+    <rect
+       ry="9.5964336"
+       y="432.74423"
+       x="528.30975"
+       height="37.130547"
+       width="273.75134"
+       id="rect3165"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
     <text
        sodipodi:linespacing="125%"
        id="text3048"
-       y="421.64789"
-       x="529.57141"
+       y="428.63776"
+       x="530.56128"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Fira Sans;-inkscape-font-specification:Fira Sans"
        xml:space="preserve"><tspan
          id="tspan3054"
          style="font-size:24px"
-         y="421.64789"
-         x="529.57141"
-         sodipodi:role="line">                Lieu</tspan><tspan
+         y="428.63776"
+         x="530.56128"
+         sodipodi:role="line">                 Lieu:</tspan><tspan
          style="font-size:24px"
-         y="451.64789"
-         x="529.57141"
+         y="458.63776"
+         x="530.56128"
          sodipodi:role="line"
-         id="tspan3077">_________________  [ici]</tspan><tspan
+         id="tspan3079">caves pop</tspan><tspan
          style="font-size:24px"
-         y="481.64789"
-         x="529.57141"
+         y="488.63776"
+         x="530.56128"
          sodipodi:role="line"
-         id="tspan3079"></tspan><tspan
+         id="tspan3169" /><tspan
          style="font-size:24px"
-         y="511.64789"
-         x="529.57141"
+         y="518.63776"
+         x="530.56128"
          sodipodi:role="line"
-         id="tspan3095">             Message</tspan><tspan
+         id="tspan3138">             Message:</tspan><tspan
          style="font-size:24px"
-         y="541.64789"
-         x="529.57141"
-         sodipodi:role="line"
-         id="tspan3081" /><tspan
-         style="font-size:24px"
-         y="571.64789"
-         x="529.57141"
+         y="548.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3097">Il était un petit navireuh,</tspan><tspan
          style="font-size:24px"
-         y="601.64789"
-         x="529.57141"
+         y="578.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3099">qui n'avait ja, ja, jamais...</tspan><tspan
          style="font-size:24px"
-         y="631.64789"
-         x="529.57141"
+         y="608.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3083" /><tspan
          style="font-size:24px"
-         y="661.64789"
-         x="529.57141"
+         y="638.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3085" /><tspan
          style="font-size:24px"
-         y="691.64789"
-         x="529.57141"
+         y="668.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3087" /><tspan
          style="font-size:24px"
-         y="721.64789"
-         x="529.57141"
+         y="698.63776"
+         x="530.56128"
          sodipodi:role="line"
          id="tspan3089" /></text>
     <path
@@ -511,9 +522,9 @@
     <rect
        ry="10"
        y="750.00696"
-       x="982.82239"
-       height="178.93401"
-       width="293.03046"
+       x="988.8833"
+       height="178.93402"
+       width="286.96948"
        id="rect3125"
        style="fill:#ffdcc5;fill-opacity:1;stroke:none" />
     <text
@@ -638,11 +649,11 @@
          y="578.94092"
          style="font-style:italic;font-weight:bold;fill:#0055d4;fill-opacity:1;-inkscape-font-specification:Fira Sans Bold Italic">caves pop</tspan></text>
     <rect
-       style="fill:#99ff55;stroke:none"
+       style="fill:#e3e2db;stroke:none"
        id="rect3990"
-       width="281.83255"
-       height="101.01525"
-       x="985.90887"
+       width="285.76114"
+       height="101.01526"
+       x="987.90887"
        y="634.159"
        ry="10" />
     <rect
@@ -770,7 +781,7 @@
          style="font-size:24px"
          y="1103.6479"
          x="527.57141"
-         sodipodi:role="line"></tspan><tspan
+         sodipodi:role="line" /><tspan
          style="font-size:24px"
          y="1133.6479"
          x="527.57141"
@@ -785,28 +796,28 @@
        sodipodi:linespacing="125%"
        id="text4030"
        y="1075.7908"
-       x="790.42859"
+       x="784.42859"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Fira Sans;-inkscape-font-specification:Fira Sans"
        xml:space="preserve"><tspan
          style="font-size:24px"
          y="1075.7908"
-         x="790.42859"
+         x="784.42859"
          id="tspan4032"
          sodipodi:role="line">3</tspan><tspan
          style="font-size:24px"
          id="tspan4034"
          y="1105.7908"
-         x="790.42859"
-         sodipodi:role="line"></tspan><tspan
+         x="784.42859"
+         sodipodi:role="line" /><tspan
          style="font-size:24px"
          y="1135.7908"
-         x="790.42859"
+         x="784.42859"
          sodipodi:role="line"
          id="tspan4048">3</tspan><tspan
          style="font-size:24px"
          id="tspan4036"
          y="1165.7908"
-         x="790.42859"
+         x="784.42859"
          sodipodi:role="line">2</tspan></text>
     <path
        sodipodi:nodetypes="ccccc"
@@ -963,17 +974,25 @@
          x="-413.3735"
          sodipodi:role="line"
          id="tspan4123" /></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3173"
+       width="273.75134"
+       height="37.130547"
+       x="-441.43668"
+       y="796.39917"
+       ry="9.5964336" />
     <text
        sodipodi:linespacing="125%"
        id="text4098"
-       y="822.49133"
-       x="-347.65921"
+       y="824.49133"
+       x="-431.65921"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Fira Sans;-inkscape-font-specification:Fira Sans"
        xml:space="preserve"><tspan
          style="font-size:24px"
          id="tspan4104"
-         y="822.49133"
-         x="-347.65921"
+         y="824.49133"
+         x="-431.65921"
          sodipodi:role="line">Nical</tspan></text>
     <path
        sodipodi:nodetypes="ccccc"
@@ -1004,5 +1023,54 @@
        id="path4114"
        d="m -89.325834,714.14026 53.088018,0.17479 2.458814,-22.90341 13.531717,29.16446 -18.081062,15.70175"
        style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <g
+       id="g3155"
+       transform="translate(1.5152288,-6)">
+      <rect
+         style="fill:#c87137;fill-opacity:1;stroke:none"
+         id="rect3153"
+         width="45.961941"
+         height="45.961941"
+         x="754.58392"
+         y="430.06763"
+         ry="9.009901" />
+      <rect
+         ry="9.009901"
+         y="426.06763"
+         x="754.58392"
+         height="45.961941"
+         width="45.961941"
+         id="rect3151"
+         style="fill:#e9c6af;fill-opacity:1;stroke:none" />
+      <g
+         transform="matrix(0.71145785,0,0,0.71145785,229.8828,117.52388)"
+         id="g3146">
+        <path
+           sodipodi:type="arc"
+           style="fill:#917c6f;fill-opacity:1;stroke:none"
+           id="path3140"
+           sodipodi:cx="769.64288"
+           sodipodi:cy="445.57648"
+           sodipodi:rx="21.785715"
+           sodipodi:ry="21.785715"
+           d="m 791.4286,445.57648 c 0,12.03192 -9.7538,21.78571 -21.78572,21.78571 -12.03191,0 -21.78571,-9.75379 -21.78571,-21.78571 0,-12.03192 9.7538,-21.78572 21.78571,-21.78572 12.03192,0 21.78572,9.7538 21.78572,21.78572 z" />
+        <path
+           style="fill:#917c6f;fill-opacity:1;stroke:none"
+           d="m 750.92214,456.62472 16.28872,27.52666 c 2.47737,4.29511 5.55797,2.69655 6.81853,0 l 14.2684,-27.14785 z"
+           id="path3142"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+        <path
+           d="m 791.4286,445.57648 c 0,12.03192 -9.7538,21.78571 -21.78572,21.78571 -12.03191,0 -21.78571,-9.75379 -21.78571,-21.78571 0,-12.03192 9.7538,-21.78572 21.78571,-21.78572 12.03192,0 21.78572,9.7538 21.78572,21.78572 z"
+           sodipodi:ry="21.785715"
+           sodipodi:rx="21.785715"
+           sodipodi:cy="445.57648"
+           sodipodi:cx="769.64288"
+           id="path3144"
+           style="fill:#cccccc;fill-opacity:1;stroke:none"
+           sodipodi:type="arc"
+           transform="matrix(0.84930512,0,0,0.84930512,115.98124,67.146094)" />
+      </g>
+    </g>
   </g>
 </svg>
