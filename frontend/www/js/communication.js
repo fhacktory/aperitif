@@ -40,7 +40,7 @@ updateSemaphore(
 **/
 
 function listSemaphore(onsuccess, onfailure) {
-  var url = "http://aperitif.local/v1/semaphore.json";
+  var url = "http://aperitif.feston.me/v1/semaphore.json";
   XHR(url, "GET", null, function(data) {
     onsuccess(JSON.parse(data));
   },
@@ -51,7 +51,7 @@ function listSemaphore(onsuccess, onfailure) {
 
 function createSemaphore(username, location, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.local/v1/semaphore.json";
+  var url = "http://aperitif.feston.me/v1/semaphore.json";
 
   var formData = new FormData();
   formData.append("username", username);
@@ -67,7 +67,7 @@ function createSemaphore(username, location, onsuccess, onfailure) {
 
 function updateSemaphore(publicId, privateId, location, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.local/v1/semaphore/" + publicId + ".json";
+  var url = "http://aperitif.feston.me/v1/semaphore/" + publicId + ".json";
 
   var formData = new FormData();
   formData.append("privateId", privateId);
