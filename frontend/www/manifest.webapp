@@ -3,12 +3,12 @@
   "description": "The bat signal of beer drinkers",
   "launch_path": "/index.html",
   "icons": {
-    "512": "/img/icon-512.png",
-    "128": "/img/icon-128.png"
+    "128": "/img/logo.png"
   },
   "developer": {
     "name": "Feston",
     "url": "feston.fr"
   },
-  "default_locale": "en"
+  "default_locale": "en",
+  "pkgname":"com.feston.aperitif.front"
 }

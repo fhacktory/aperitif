@@ -32,3 +32,5 @@ backend/phpunit.xml
 
 # Composer PHAR
 /composer.phar
+
+frontend/platforms
