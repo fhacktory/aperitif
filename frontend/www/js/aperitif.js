@@ -144,7 +144,6 @@ function refresh_apero_list() {
     noAperoDiv.innerHTML = "No apéritif found :(";
 
     if(show) {
-      console.log('tot');
       apero_list.appendChild(noAperoDiv);
     } else {
       try {apero_list.removeChild(noAperoDiv);}
@@ -152,7 +151,7 @@ function refresh_apero_list() {
     }
   }
 
-  listSemaphore(function on_success(apero_array) {
+  listAperitif(function on_success(apero_array) {
     var i;
 
     if(apero_array.length === 0) {
