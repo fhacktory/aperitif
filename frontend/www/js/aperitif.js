@@ -107,7 +107,6 @@ function refresh_apero_list() {
     noAperoDiv.innerHTML = "No apéritif found :(";
 
     if(show) {
-      console.log('tot');
       apero_list.appendChild(noAperoDiv);
     }
     else {
