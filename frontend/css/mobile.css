@@ -42,7 +42,8 @@ html {
 #apero-button {
     background-color: lightblue;
     border-radius: 5px;
-    padding: 8%;
+    text-align: center;
+    margin-top: auto;
     margin: 1%;
     flex: 0 0 20%;
 }
