@@ -3,14 +3,8 @@ function on_load() {
     set_user_name("Nical");
 
     apero_list = document.querySelector("#apero-list");
-    apero_list.classList.remove("hidden");
     apero_wizard = document.querySelector("#apero-wizard");
-    apero_wizard.classList.remove("hidden");
-
-    // add fake items
-    //for (var item in fake_aperitifs) {
-    //    append_apero(apero_list, fake_aperitifs[item]);
-    //}
+    user_setup = document.querySelector("#user-setup");
 
     refresh_apero_list();
 
@@ -21,11 +15,24 @@ function on_load() {
     }
 
     // ...and add back the one we want
-    go_to_panel(apero_list);
+    go_to_panel(user_setup);
 
     //if (navigator.mozApps) {
     //    var installRequest = navigator.mozApps.install("manifest.webapp");
     //}
+
+    apero_list.classList.remove("hidden");
+    apero_wizard.classList.remove("hidden");
+    user_setup.classList.remove("hidden");
+}
+
+function create_user_click() {
+    var name = "" + document.getElementById("user-name-input").value;
+    if (name.length > 0) {
+        set_user_name(name);
+        document.querySelector("#apero-button").classList.remove("hidden");
+        go_to_panel(apero_list);
+    }
 }
 
 function set_user_name(name) {

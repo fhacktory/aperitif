@@ -6,10 +6,6 @@
     <link rel="stylesheet" href="css/mobile.css">
     <script src="js/aperitif.js"></script>
     <script src="js/communication.js"></script>
-
-    <style>
-        .hidden { display: none; }
-    </style>
 </head>
 <body onload="on_load()">
     <div id="main-view">
@@ -17,7 +13,7 @@
             Me
         </div>
 
-        <button id="apero-button" class="auto-width" onclick="apero_click()">
+        <button id="apero-button" class="auto-width hidden" onclick="apero_click()">
             Apéro!
         </button>
 
@@ -25,6 +21,16 @@
 
             <div id="apero-list" class="hidden">
                 <!-- content inserted from js -->
+            </div>
+
+            <div id="user-setup" class="hidden">
+                <div>
+                    <br><br>What's your name?
+                </div>
+                <div>
+                    <input type="text" id="user-name-input"></input>
+                </div>
+                <button id="create-user-button" class="green-button" onclick="create_user_click()"> Ok </button>
             </div>
 
             <div id="apero-wizard" class="hidden">
@@ -38,8 +44,8 @@
                 <textarea id="apero-message-input"> </textarea>
 
                 <div class="button-pair">
-                    <button id="apero-cancel" onclick="wizard_cancel()"> cancel </button>
-                    <button id="apero-ok" onclick="wizard_ok()"> Ok </button>
+                    <button id="apero-cancel" class="red-button" onclick="wizard_cancel()"> cancel </button>
+                    <button id="apero-ok" class="grey-button" onclick="wizard_ok()"> Ok </button>
                 </div>
             </div>
 
