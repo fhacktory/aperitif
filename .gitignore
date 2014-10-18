@@ -45,4 +45,5 @@ frontend/platforms/android/cordova/node_modules/*
 frontend/platforms/android/cordova/lib/*
 frontend/platforms/android/CordovaLib/ant-build/
 frontend/platforms/android/ant-build/
+frontend/platforms/android/assets/*
 
