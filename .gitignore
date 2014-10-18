@@ -33,4 +33,6 @@ backend/phpunit.xml
 # Composer PHAR
 /composer.phar
 
-frontend/platforms
+frontend/platforms/firefoxos/cordova/node_modules/*
+frontend/platforms/firefoxos/cordova/lib/*
+frontend/platforms/firefoxos/www/*
