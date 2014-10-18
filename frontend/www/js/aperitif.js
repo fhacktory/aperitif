@@ -38,7 +38,6 @@ function apero_click() {
     console.log("Apéro!!");
 }
 
-var selected_item =  null;
 
 function apero_item_click() {
     if (selected_item && selected_item != this) {
@@ -80,3 +79,40 @@ function append_apero(list_view, apero) {
     list_view.appendChild(div);
 }
 
+function remove_apero(apero) {
+    var list = document.querySelector("#apero-list");
+    if (!list) { return; }
+    list.removeChild(apero);
+}
+
+function remove_all_aperos() {
+    var list = document.querySelector("#apero-list");
+    if (!list) { return; }
+    while (list.firstChild) {
+        list.removeChild(apero);
+    }
+}
+
+var selected_item =  null;
+var current_edit_panel = null;
+var apero_list = null;
+var apero_wizard = null;
+
+function go_to_main_panel() {
+    if (current_edit_panel && current_edit_panel == apero_list) {
+        return;
+    }
+
+    if (current_edit_panel.on_hide) {
+        current_edit_panel.on_hide();
+    }
+
+    current_edit_panel = apero_list;
+    var container = document.querySelector("#edit-panel");
+    container.removeChild(current_edit_panel);
+    container.addChild(apero_list);
+}
+
+function go_to_apero_wizard() {
+    // TODO;
+}
