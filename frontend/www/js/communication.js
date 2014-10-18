@@ -23,10 +23,22 @@ createAperitif(
   }
 );
 
+Example #3 - create an user
+
+createUser(
+  'Papa Delta',
+  function(data) {
+    console.log(data);
+  },
+  function(e) {
+    console.log(e);
+  }
+);
+
 **/
 
 function listAperitif(onsuccess, onfailure) {
-  var url = "http://aperitif.feston.me/v1/aperitif.json";
+  var url = "http://aperitif.local/v1/aperitif.json";
   XHR(url, "GET", null, function(data) {
     onsuccess(JSON.parse(data));
   },
@@ -37,11 +49,26 @@ function listAperitif(onsuccess, onfailure) {
 
 function createAperitif(username, location, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.feston.me/v1/aperitif.json";
+  var url = "http://aperitif.local/v1/aperitif.json";
 
   var formData = new FormData();
   formData.append("username", username);
   formData.append("location", location);
+
+  XHR(url, "POST", formData, function(data) {
+    onsuccess(JSON.parse(data));
+  },
+  function(e) {
+    onfailure(e);
+  });
+}
+
+function createUser(name, onsuccess, onfailure) {
+  var req = new XMLHttpRequest();
+  var url = "http://aperitif.local/v1/user.json";
+
+  var formData = new FormData();
+  formData.append("name", name);
 
   XHR(url, "POST", formData, function(data) {
     onsuccess(JSON.parse(data));

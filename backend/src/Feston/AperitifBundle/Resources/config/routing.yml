@@ -1,17 +1,23 @@
-feston_aperitif_list_aperitif:
+feston_aperitif_aperitif_list:
     pattern: /v1/aperitif.{_format}
     defaults: { _controller: FestonAperitifBundle:Aperitif:list }
     requirements:
         _method:  GET
 
-feston_aperitif_create_aperitif:
+feston_aperitif_aperitif_create:
     pattern: /v1/aperitif.{_format}
     defaults: { _controller: FestonAperitifBundle:Aperitif:create }
     requirements:
         _method:  POST
 
-feston_aperitif_update_aperitif:
-    pattern: /v1/aperitif/{publicId}.{_format}
-    defaults: { _controller: FestonAperitifBundle:Aperitif:update }
+feston_aperitif_aperitif_attendee:
+    pattern: /v1/aperitif/{id}/{_format}
+    defaults: { _controller: FestonAperitifBundle:Aperitif:addAttendee }
+    requirements:
+        _method:  POST
+
+feston_aperitif_user_create:
+    pattern: /v1/user.{_format}
+    defaults: { _controller: FestonAperitifBundle:User:create }
     requirements:
         _method:  POST
