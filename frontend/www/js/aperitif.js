@@ -23,11 +23,18 @@ function on_load() {
         { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
     ];
 
+    set_user_name("Nical");
+
+    // init the apero list div and style
+    apero_list = document.createElement("div");
+    apero_list.id = "apero-list";
+    // add fake items
     var list_view = document.querySelector("#apero-list");
     for (var item in fake_aperitifs) {
         append_apero(list_view, fake_aperitifs[item]);
     }
-    set_user_name("Nical");
+
+    go_to_panel(apero_list);
 }
 
 function set_user_name(name) {
@@ -97,9 +104,10 @@ var selected_item =  null;
 var current_edit_panel = null;
 var apero_list = null;
 var apero_wizard = null;
+var start_page = null;
 
-function go_to_main_panel() {
-    if (current_edit_panel && current_edit_panel == apero_list) {
+function go_to_panel(new_panel) {
+    if (current_edit_panel == new_panel) {
         return;
     }
 
@@ -107,12 +115,11 @@ function go_to_main_panel() {
         current_edit_panel.on_hide();
     }
 
-    current_edit_panel = apero_list;
     var container = document.querySelector("#edit-panel");
-    container.removeChild(current_edit_panel);
-    container.addChild(apero_list);
+    if (current_edit_panel) {
+        container.removeChild(current_edit_panel);
+    }
+    container.addChild(new_panel);
+    current_edit_panel = new_panel;
 }
 
-function go_to_apero_wizard() {
-    // TODO;
-}
