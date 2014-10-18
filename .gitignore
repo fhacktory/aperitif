@@ -36,3 +36,7 @@ backend/phpunit.xml
 frontend/platforms/firefoxos/cordova/node_modules/*
 frontend/platforms/firefoxos/cordova/lib/*
 frontend/platforms/firefoxos/www/*
+
+frontend/platforms/browser/cordova/node_modules/*
+frontend/platforms/browser/cordova/lib/*
+frontend/platforms/browser/www/*
