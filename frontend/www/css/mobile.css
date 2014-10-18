@@ -42,7 +42,7 @@ html {
 #apero-button {
     flex: 0 0 10%;
     border-radius: 5px;
-    background-image: url(../images/logo-256.png);
+    background-image: url(../img/logo-256.png);
     background-size: 20%;
     background-repeat: no-repeat;
     background-position: 2%, 2%;
