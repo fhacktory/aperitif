@@ -1,38 +1,12 @@
 
 function on_load() {
-    var fake_aperitifs = [
-        { name: "cgg",  place: "Penty",    time: "18:00", msg: "on y va en vélo!"},
-        { name: "papadelta", place: "Caves pop", time: "18:00", msg: "I am thirsty!"},
-        { name: "padenot", place: "Non.",  time: "18:00", msg: "Non."},
-        { name: "bsb",   place: "k-fêt",   time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-    ];
-
     set_user_name("Nical");
 
     // init the apero list div and style
     apero_list = document.createElement("div");
     apero_list.id = "apero-list";
-    // add fake items
-    var list_view = document.querySelector("#apero-list");
-    for (var item in fake_aperitifs) {
-        append_apero(list_view, fake_aperitifs[item]);
-    }
+
+    refresh_apero_list();
 
     go_to_panel(apero_list);
 }
@@ -81,7 +55,7 @@ function append_apero(list_view, apero) {
     var div = document.createElement("div");
     div.setAttribute("class", "apero-item");
     div.addEventListener("click", apero_item_click);
-    div.innerHTML = apero.name + " - " + apero.place;
+    div.innerHTML = apero.username + " - " + apero.location;
     div.details = apero;
     list_view.appendChild(div);
 }
@@ -123,6 +97,28 @@ function go_to_panel(new_panel) {
     current_edit_panel = new_panel;
 }
 
-function go_to_apero_wizard() {
-    // TODO;
+function refresh_apero_list() {
+  remove_all_aperos();
+
+  function insert_no_apero_label() {
+    // TODO
+  }
+
+  listSemaphore(function on_success(apero_array) {
+    var i;
+        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
+
+    if(apero_array.length === 0) {
+      insert_no_apero_label();
+    } else {
+      for(i = 0; i < apero_array.length; ++i) {
+        //append_apero(apero_list, apero_array[i]);
+        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
+      }
+    }
+  },
+  function on_error(e) {
+    console.log(e);
+    insert_no_apero_label();
+  });
 }
