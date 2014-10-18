@@ -45,11 +45,11 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Apéro!"
+        document.querySelector("#apero-label").innerHTML = "Apéro!";
         selected_item = null;
     } else {
         select_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Join!"
+        document.querySelector("#apero-label").innerHTML = "Join!";
         selected_item = this;
     }
 }
@@ -57,7 +57,7 @@ function apero_item_click() {
 function select_apero_item(apero) {
     apero.innerHTML = apero.details.name + " - " + apero.details.place +
                     "<br>" + apero.details.time +
-                    "<br>" + apero.details.msg
+                    "<br>" + apero.details.msg;
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
     }
