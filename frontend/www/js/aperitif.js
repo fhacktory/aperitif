@@ -119,7 +119,7 @@ function go_to_panel(new_panel) {
     if (current_edit_panel) {
         container.removeChild(current_edit_panel);
     }
-    container.addChild(new_panel);
+    container.appendChild(new_panel);
     current_edit_panel = new_panel;
 }
 
