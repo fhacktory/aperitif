@@ -5,11 +5,6 @@ function on_load() {
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
 
-    // add fake items
-    //for (var item in fake_aperitifs) {
-    //    append_apero(apero_list, fake_aperitifs[item]);
-    //}
-
     refresh_apero_list();
 
     // remove all panels from the dom...
