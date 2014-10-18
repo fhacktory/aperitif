@@ -36,7 +36,7 @@ function apero_item_click() {
 }
 
 function select_apero_item(apero) {
-    apero.innerHTML = apero.details.name + " - " + apero.details.place +
+    apero.innerHTML = apero.details.username + " - " + apero.details.location +
                     "<br>" + apero.details.time +
                     "<br>" + apero.details.msg;
     if (!apero.classList.contains("selected")) {
@@ -45,7 +45,7 @@ function select_apero_item(apero) {
 }
 
 function unselect_apero_item(apero) {
-    apero.innerHTML = apero.details.name + " - " + apero.details.place;
+    apero.innerHTML = apero.details.username + " - " + apero.details.location;
     if (apero.classList.contains("selected")) {
         apero.classList.remove("selected");
     }
@@ -100,25 +100,35 @@ function go_to_panel(new_panel) {
 function refresh_apero_list() {
   remove_all_aperos();
 
-  function insert_no_apero_label() {
-    // TODO
+  function show_no_apero_label(show) {
+    var noAperoDiv = document.createElement("div");
+    noAperoDiv.setAttribute("class", "no-apero-item");
+    noAperoDiv.innerHTML = "No apéritif found :(";
+
+    if(show) {
+      console.log('tot');
+      apero_list.appendChild(noAperoDiv);
+    }
+    else {
+      try {apero_list.removeChild(noAperoDiv);}
+      catch(e) {}
+    }
   }
 
   listSemaphore(function on_success(apero_array) {
     var i;
-        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
 
     if(apero_array.length === 0) {
-      insert_no_apero_label();
+      show_no_apero_label(true);
     } else {
+      show_no_apero_label(false);
       for(i = 0; i < apero_array.length; ++i) {
-        //append_apero(apero_list, apero_array[i]);
-        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
+        append_apero(apero_list, apero_array[i]);
       }
     }
   },
   function on_error(e) {
     console.log(e);
-    insert_no_apero_label();
+    show_no_apero_label(true);
   });
 }
