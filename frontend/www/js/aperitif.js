@@ -19,7 +19,7 @@ function on_load() {
     }
 
     // ...and add back the one we want
-    go_to_panel(apero_list);
+    go_to_panel(apero_wizard);
 
     //if (navigator.mozApps) {
     //    var installRequest = navigator.mozApps.install("manifest.webapp");
@@ -51,11 +51,11 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Apéro!";
+        //document.querySelector("#apero-label").innerHTML = "Apéro!";
         selected_item = null;
     } else {
         select_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Join!";
+        //document.querySelector("#apero-label").innerHTML = "Join!";
         selected_item = this;
     }
 }
