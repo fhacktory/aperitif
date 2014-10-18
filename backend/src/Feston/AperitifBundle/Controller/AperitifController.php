@@ -6,22 +6,22 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use Feston\AperitifBundle\Entity\Semaphore;
+use Feston\AperitifBundle\Entity\Aperitif;
 
-class SemaphoreController extends FOSRestController
+class AperitifController extends FOSRestController
 {
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $semaphores = $em->getRepository('FestonAperitifBundle:Semaphore')->findAll();
+        $aperitifs = $em->getRepository('FestonAperitifBundle:Aperitif')->findAll();
 
         $data = array();
-        foreach ($semaphores as $semaphore) {
+        foreach ($aperitifs as $aperitif) {
             $data[] = array(
-                'created' => $semaphore->getCreated(),
-                'publicId' => $semaphore->getPublicId(),
-                'username' => $semaphore->getUsername(),
-                'location' => $semaphore->getLocation(),
+                'created' => $aperitif->getCreated(),
+                'publicId' => $aperitif->getPublicId(),
+                'username' => $aperitif->getUsername(),
+                'location' => $aperitif->getLocation(),
             );
         }
 
@@ -38,13 +38,13 @@ class SemaphoreController extends FOSRestController
         $location = $request->request->get('location', 'not provided');
 
         if ($username !== null) {
-            $semaphore = new Semaphore($username, $location);
-            $em->persist($semaphore);
+            $aperitif = new Aperitif($username, $location);
+            $em->persist($aperitif);
             $em->flush();
             $data = array(
-                'created' => $semaphore->getCreated(),
-                'privateId' => $semaphore->getPrivateId(),
-                'publicId' => $semaphore->getPublicId(),
+                'created' => $aperitif->getCreated(),
+                'privateId' => $aperitif->getPrivateId(),
+                'publicId' => $aperitif->getPublicId(),
             );
             $view = $this->view($data, 200);
         } else {
@@ -58,24 +58,24 @@ class SemaphoreController extends FOSRestController
     public function updateAction(Request $request, $publicId)
     {
         $em = $this->getDoctrine()->getManager();
-        $semaphore = $em->getRepository('FestonAperitifBundle:Semaphore')->findOneByPublicId($publicId);
+        $aperitif = $em->getRepository('FestonAperitifBundle:Aperitif')->findOneByPublicId($publicId);
 
-        if (!$semaphore) {
-            $data = array('msg' => "Can't find this semaphore.");
+        if (!$aperitif) {
+            $data = array('msg' => "Can't find this aperitif.");
             $view = $this->view($data, 404);
 
             return $this->handleView($view);
         }
 
         $privateId = $request->request->get('privateId', null);
-        if ($privateId === null || $privateId !== $semaphore->getPrivateId()) {
-            $data = array('msg' => "You don't have the right to update this semaphore.");
+        if ($privateId === null || $privateId !== $aperitif->getPrivateId()) {
+            $data = array('msg' => "You don't have the right to update this aperitif.");
             $view = $this->view($data, 403);
         } else {
             $location = $request->request->get('location', 'not provided');
-            $semaphore->setLocation($location);
+            $aperitif->setLocation($location);
             $em->flush();
-            $data = array('msg' => "Semaphore updated.");
+            $data = array('msg' => "Aperitif updated.");
             $view = $this->view($data, 200);
         }
 

@@ -1,17 +1,17 @@
-feston_aperitif_list_semaphore:
-    pattern: /v1/semaphore.{_format}
-    defaults: { _controller: FestonAperitifBundle:Semaphore:list }
+feston_aperitif_list_aperitif:
+    pattern: /v1/aperitif.{_format}
+    defaults: { _controller: FestonAperitifBundle:Aperitif:list }
     requirements:
         _method:  GET
 
-feston_aperitif_create_semaphore:
-    pattern: /v1/semaphore.{_format}
-    defaults: { _controller: FestonAperitifBundle:Semaphore:create }
+feston_aperitif_create_aperitif:
+    pattern: /v1/aperitif.{_format}
+    defaults: { _controller: FestonAperitifBundle:Aperitif:create }
     requirements:
         _method:  POST
 
-feston_aperitif_update_semaphore:
-    pattern: /v1/semaphore/{publicId}.{_format}
-    defaults: { _controller: FestonAperitifBundle:Semaphore:update }
+feston_aperitif_update_aperitif:
+    pattern: /v1/aperitif/{publicId}.{_format}
+    defaults: { _controller: FestonAperitifBundle:Aperitif:update }
     requirements:
         _method:  POST

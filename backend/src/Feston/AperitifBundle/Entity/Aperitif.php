@@ -5,12 +5,12 @@ namespace Feston\AperitifBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Semaphore
+ * Aperitif
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Semaphore
+class Aperitif
 {
     /**
      * @var integer
@@ -84,7 +84,7 @@ class Semaphore
      * Set created
      *
      * @param \DateTime $created
-     * @return Semaphore
+     * @return Aperitif
      */
     public function setCreated($created)
     {
@@ -107,7 +107,7 @@ class Semaphore
      * Set privateId
      *
      * @param string $privateId
-     * @return Semaphore
+     * @return Aperitif
      */
     public function setPrivateId($privateId)
     {
@@ -130,7 +130,7 @@ class Semaphore
      * Set publicId
      *
      * @param string $publicId
-     * @return Semaphore
+     * @return Aperitif
      */
     public function setPublicId($publicId)
     {
@@ -153,7 +153,7 @@ class Semaphore
      * Set username
      *
      * @param string $username
-     * @return Semaphore
+     * @return Aperitif
      */
     public function setUsername($username)
     {
@@ -176,7 +176,7 @@ class Semaphore
      * Set location
      *
      * @param string $location
-     * @return Semaphore
+     * @return Aperitif
      */
     public function setLocation($location)
     {
