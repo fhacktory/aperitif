@@ -96,3 +96,38 @@ html {
     margin: 0px;
     padding: 0px;    
 }
+
+.button-pair {
+    width: 100%;
+}
+
+#apero-wizard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wizard-field {
+    flex: 0 0 auto%;
+    text-align: center;
+}
+
+.wizard-field > input {
+    width: 94%;
+    margin: 2%;
+}
+
+#apero-wizard > textarea {
+    flex: 3 1 auto;
+    width: 94%;
+    height: auto;
+    margin: 2%;
+}
+
+.button-pair > button {
+    flex: 0 0 10%;
+    width: 50%;
+    margin: 0px;
+    float: left;
+}

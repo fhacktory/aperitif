@@ -1,37 +1,16 @@
 
 function on_load() {
-    var fake_aperitifs = [
-        { name: "cgg",  place: "Penty",    time: "18:00", msg: "on y va en vélo!"},
-        { name: "papadelta", place: "Caves pop", time: "18:00", msg: "I am thirsty!"},
-        { name: "padenot", place: "Non.",  time: "18:00", msg: "Non."},
-        { name: "bsb",   place: "k-fêt",   time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-        { name: "dummy", place: "nowhere", time: "18:00", msg: "I am thirsty!"},
-    ];
-
     set_user_name("Nical");
 
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
 
     // add fake items
-    for (var item in fake_aperitifs) {
-        append_apero(apero_list, fake_aperitifs[item]);
-    }
+    //for (var item in fake_aperitifs) {
+    //    append_apero(apero_list, fake_aperitifs[item]);
+    //}
+
+    refresh_apero_list();
 
     // remove all panels from the dom...
     var container = document.querySelector("#edit-panel");
@@ -56,8 +35,14 @@ function apero_click() {
     if (current_edit_panel == apero_list) {
         if (!selected_item) {
             go_to_panel(apero_wizard);
+        } else {
+
         }
     }
+}
+
+function wizard_cancel() {
+    go_to_panel(apero_list);
 }
 
 function apero_item_click() {
@@ -66,11 +51,11 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Apéro!"
+        document.querySelector("#apero-label").innerHTML = "Apéro!";
         selected_item = null;
     } else {
         select_apero_item(this);
-        document.querySelector("#apero-label").innerHTML = "Join!"
+        document.querySelector("#apero-label").innerHTML = "Join!";
         selected_item = this;
     }
 }
@@ -78,7 +63,7 @@ function apero_item_click() {
 function select_apero_item(apero) {
     apero.innerHTML = apero.details.name + " - " + apero.details.place +
                     "<br>" + apero.details.time +
-                    "<br>" + apero.details.msg
+                    "<br>" + apero.details.msg;
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
     }
@@ -95,7 +80,7 @@ function append_apero(list_view, apero) {
     var div = document.createElement("div");
     div.setAttribute("class", "apero-item");
     div.addEventListener("click", apero_item_click);
-    div.innerHTML = apero.name + " - " + apero.place;
+    div.innerHTML = apero.username + " - " + apero.location;
     div.details = apero;
     list_view.appendChild(div);
 }
@@ -110,7 +95,7 @@ function remove_all_aperos() {
     var list = document.querySelector("#apero-list");
     if (!list) { return; }
     while (list.firstChild) {
-        list.removeChild(apero);
+        list.removeChild(list.firstChild);
     }
 }
 
@@ -140,3 +125,28 @@ function go_to_panel(new_panel) {
     current_edit_panel = new_panel;
 }
 
+function refresh_apero_list() {
+  remove_all_aperos();
+
+  function insert_no_apero_label() {
+    // TODO
+  }
+
+  listSemaphore(function on_success(apero_array) {
+    var i;
+        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
+
+    if(apero_array.length === 0) {
+      insert_no_apero_label();
+    } else {
+      for(i = 0; i < apero_array.length; ++i) {
+        //append_apero(apero_list, apero_array[i]);
+        append_apero(apero_list, {username:"papa delta", location:"caves pop"});
+      }
+    }
+  },
+  function on_error(e) {
+    console.log(e);
+    insert_no_apero_label();
+  });
+}
