@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="css/mobile.css">
     <script src="js/aperitif.js"></script>
     <script src="js/communication.js"></script>
+
+    <style>
+        .hidden { display: none; }
+    </style>
 </head>
 <body onload="on_load()">
     <div id="main-view">
@@ -19,17 +23,14 @@
 
         <div id="edit-panel">
 
-            <div id="apero-list">
+            <div id="apero-list" class="hidden">
                 <!-- content inserted from js -->
             </div>
 
-            <div id="apero-wizard">
+            <div id="apero-wizard" class="hidden">
                 <div class="wizard-field">
                     Name:
                     <input type="text" id="apero-name-input"> </input>
-<!--                </div>
-                <div class="wizard-field">
--->
                     <br>Address:
                     <input type="text" id="apero-address-input"> </input>
                     <br>Message:
