@@ -96,7 +96,7 @@ function remove_all_aperos() {
     var list = document.querySelector("#apero-list");
     if (!list) { return; }
     while (list.firstChild) {
-        list.removeChild(apero);
+        list.removeChild(list.firstChild);
     }
 }
 
@@ -123,3 +123,6 @@ function go_to_panel(new_panel) {
     current_edit_panel = new_panel;
 }
 
+function go_to_apero_wizard() {
+    // TODO;
+}
