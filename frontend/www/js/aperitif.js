@@ -1,7 +1,5 @@
 
 function on_load() {
-    set_user_name("Nical");
-
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
     user_setup = document.querySelector("#user-setup");
@@ -26,11 +24,36 @@ function on_load() {
     user_setup.classList.remove("hidden");
 }
 
+function is_valid_name(name) {
+    return !name.match(/^[a-zA-Z0-9_]*$/);
+}
+
+var valid_name;
+function typing_user_name() {
+    var name = document.querySelector("#user-name-input").value;
+    console.log(name);
+    var button = document.querySelector("#create-user-button");
+    if (is_valid_name(name)) {
+        if (!valid_name) {
+            button.classList.remove("green-button");
+            button.classList.add("grey-button");
+        }
+        valid_name = true;
+    } else {
+        if (valid_name) {
+            button.classList.remove("grey-button");
+            button.classList.add("green-button");
+        }
+        valid_name = false;
+    }
+}
+
 function create_user_click() {
     var name = "" + document.getElementById("user-name-input").value;
     if (name.length > 0) {
         set_user_name(name);
         document.querySelector("#apero-button").classList.remove("hidden");
+        document.querySelector("#edit-panel").classList.add("color-dead");
         go_to_panel(apero_list);
     }
 }

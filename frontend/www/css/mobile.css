@@ -68,9 +68,12 @@ html {
     float: left;
 }
 
+.color-dead {
+    background-color: #ffdead;
+}
+
 #edit-panel {
     flex: 1 1 main-size;
-    background-color: #ffdead;
     border-radius: 5px;
     margin-left: 2%;
     margin-right: 2%;

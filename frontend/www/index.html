@@ -10,7 +10,6 @@
 <body onload="on_load()">
     <div id="main-view">
         <div id="top">
-            Me
         </div>
 
         <button id="apero-button" class="auto-width hidden" onclick="apero_click()">
@@ -23,12 +22,12 @@
                 <!-- content inserted from js -->
             </div>
 
-            <div id="user-setup" class="hidden">
+            <div id="user-setup" class="hidden color-dead">
                 <div>
                     <br><br>What's your name?
                 </div>
                 <div>
-                    <input type="text" id="user-name-input"></input>
+                    <input type="text" id="user-name-input" onchange="typing_user_name()"></input>
                 </div>
                 <button id="create-user-button" class="green-button" onclick="create_user_click()"> Ok </button>
             </div>
