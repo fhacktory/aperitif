@@ -16,6 +16,19 @@ function on_load() {
     // ...and add back the one we want
     go_to_panel(apero_list);
 
+    if (navigator.userAgent.match(/Android/)) {
+      document.addEventListener("deviceready", onDeviceReady, false);
+    } else {
+      document.addEventListener("visibilitychange", function() {
+        if(document.hidden) {
+          onPause();
+        } else {
+          onResume();
+        }
+      });
+      onResume();
+    }
+
     //if (navigator.mozApps) {
     //    var installRequest = navigator.mozApps.install("manifest.webapp");
     //}
@@ -154,4 +167,32 @@ function refresh_apero_list() {
     console.log(e);
     show_no_apero_label(true);
   });
+}
+
+
+function onDeviceReady() {
+  console.log("device is ready...");
+  document.addEventListener("pause", onPause, false);
+  document.addEventListener("resume", onResume, false);
+
+  onResume();
+}
+
+function onResume() {
+  console.log("device resuming...");
+  if(refresh_interval === 0) {
+    refresh_interval = setInterval(refresh_aperos, 500);
+  }
+}
+
+function onPause() {
+  console.log("device pausing...");
+  clearInterval(refresh_interval);
+  refresh_interval = 0;
+}
+
+var refresh_interval = 0;
+
+function refresh_aperos() {
+  // if we are in state "join" then fetch the list of user of the apero we're in
 }
