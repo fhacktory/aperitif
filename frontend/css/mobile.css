@@ -1,0 +1,56 @@
+
+
+body {
+    height:100%;
+}
+
+html {
+    height:100%;
+}
+
+.flex-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container > div
+{
+    flex: 1 1 auto;
+}
+
+.auto-width {
+    width: auto;
+}
+
+#test {
+    background-color: red;
+}
+
+#top {
+    flex: none;
+}
+
+#footer {
+    flex: none;
+    /*height: 10%;*/
+}
+
+#apero-button {
+    background-color: lightblue;
+    border-radius: 5px;
+    /*padding: 8%;*/
+    margin: 1%;
+    flex: 0 0 25%;
+}
+
+#apero-list {
+    margin: 1%;
+    /*padding: 2%;*/
+    background-color: lightblue;
+    border-radius: 5px;
+    overflow: scroll;
+    /*height: 50%;*/
+    flex: 0 1 main-size;
+}
