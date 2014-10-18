@@ -23,20 +23,6 @@ createAperitif(
   }
 );
 
-Example #3 - update a aperitif
-
-updateAperitif(
-  '8vf79ww49z',
-  'dgii89ziy7',
-  'dtc',
-  function(data) {
-    console.log(data);
-  },
-  function(e) {
-    console.log(e);
-  }
-);
-
 **/
 
 function listAperitif(onsuccess, onfailure) {
@@ -55,22 +41,6 @@ function createAperitif(username, location, onsuccess, onfailure) {
 
   var formData = new FormData();
   formData.append("username", username);
-  formData.append("location", location);
-
-  XHR(url, "POST", formData, function(data) {
-    onsuccess(JSON.parse(data));
-  },
-  function(e) {
-    onfailure(e);
-  });
-}
-
-function updateAperitif(publicId, privateId, location, onsuccess, onfailure) {
-  var req = new XMLHttpRequest();
-  var url = "http://aperitif.feston.me/v1/aperitif/" + publicId + ".json";
-
-  var formData = new FormData();
-  formData.append("privateId", privateId);
   formData.append("location", location);
 
   XHR(url, "POST", formData, function(data) {

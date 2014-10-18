@@ -43,40 +43,12 @@ class AperitifController extends FOSRestController
             $em->flush();
             $data = array(
                 'created' => $aperitif->getCreated(),
-                'privateId' => $aperitif->getPrivateId(),
-                'publicId' => $aperitif->getPublicId(),
+                'id' => $aperitif->getId(),
             );
             $view = $this->view($data, 200);
         } else {
             $data = array('msg' => "Username can't be null.");
             $view = $this->view($data, 400);
-        }
-
-        return $this->handleView($view);
-    }
-
-    public function updateAction(Request $request, $publicId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $aperitif = $em->getRepository('FestonAperitifBundle:Aperitif')->findOneByPublicId($publicId);
-
-        if (!$aperitif) {
-            $data = array('msg' => "Can't find this aperitif.");
-            $view = $this->view($data, 404);
-
-            return $this->handleView($view);
-        }
-
-        $privateId = $request->request->get('privateId', null);
-        if ($privateId === null || $privateId !== $aperitif->getPrivateId()) {
-            $data = array('msg' => "You don't have the right to update this aperitif.");
-            $view = $this->view($data, 403);
-        } else {
-            $location = $request->request->get('location', 'not provided');
-            $aperitif->setLocation($location);
-            $em->flush();
-            $data = array('msg' => "Aperitif updated.");
-            $view = $this->view($data, 200);
         }
 
         return $this->handleView($view);
