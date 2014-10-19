@@ -67,6 +67,14 @@ createUser(
 Example #4 - add an attendee to an aperitif
 
 manageAttendee(
+  aperitifId,
+  userId,
+  action, // 'add' or 'remove'
+  onsuccess, // callback function on success
+  onfailure // callback function on failure
+);
+
+manageAttendee(
   '946140ab-5720-11e4-ad82-3c970eb345ba',
   'f0417b2d-5720-11e4-ad82-3c970eb345ba',
   'add',
