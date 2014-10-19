@@ -29,17 +29,13 @@ class AperitifController extends FOSRestController
         $message = $request->request->get('message', null);
 
         $user = $em->getRepository('FestonAperitifBundle:User')->find($userId);
-        if (!$user) {
-            $data = array('msg' => "User not found.");
-            $view = $this->view($data, 404);
-
-            return $this->handleView($view);
-        }
 
         if ($location !== null) {
             $aperitif = new Aperitif($location);
-            $aperitif->addAttendee($user);
             $aperitif->setMessage($message);
+            if ($user) {
+                $aperitif->addAttendee($user);
+            }
             $em->persist($aperitif);
             $em->flush();
             $data = array(
@@ -48,7 +44,7 @@ class AperitifController extends FOSRestController
             );
             $view = $this->view($data, 200);
         } else {
-            $data = array('msg' => "Username can't be null.");
+            $data = array('msg' => "Location can't be null.");
             $view = $this->view($data, 400);
         }
 
