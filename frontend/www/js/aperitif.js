@@ -31,6 +31,7 @@ function on_load() {
     apero_button = document.querySelector("#apero-button");
 
     apero_list.on_show = update_apero_button_state;
+    apero_wizard.on_show = update_apero_button_state;
 
     refresh_apero_list();
 
@@ -172,15 +173,20 @@ function update_apero_button_state() {
         apero_button.classList.remove("blue-button");
         apero_button.classList.remove("green-button");
         apero_button.innerHTML = "Leave apéro";
-    } else {
+    } else if (current_edit_panel == apero_list) {
         apero_button.classList.remove("red-button");
-        apero_button.classList.remove("green-button");
-        apero_button.classList.add("blue-button");
+        apero_button.classList.remove("blue-button");
+        apero_button.classList.add("green-button");
         if (selected_item) {
             apero_button.innerHTML = "Join!";
         } else {
             apero_button.innerHTML = "Apéro!";
         }
+    } else {
+        apero_button.classList.remove("red-button");
+        apero_button.classList.remove("green-button");
+        apero_button.classList.add("blue-button");
+        apero_button.innerHTML = "Apéro!";
     }
 }
 
