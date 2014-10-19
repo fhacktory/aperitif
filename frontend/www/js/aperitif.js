@@ -129,7 +129,15 @@ function set_user_name(name) {
 
 function apero_click() {
     console.log("Apéro!!");
-    if (current_edit_panel == apero_list) {
+    if (current_apero_id) {
+        manageAttendee(selected_item.details.id, user.id, user.name, 'remove',
+            function(success) {refresh_apero_list();},
+            function(fail) {console.log(fail);});
+        current_apero_id = null;
+        button.classList.remove("red-button");
+        button.classList.add("green-button");
+        button.innerHTML("Apéro!");
+    } else if (current_edit_panel == apero_list) {
         if (!selected_item) {
             go_to_panel(apero_wizard);
         } else {
