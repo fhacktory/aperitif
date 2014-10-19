@@ -1,3 +1,5 @@
+// localstorage
+var storage = window.localStorage;
 
 // in the apero_list, currently selected apero
 var selected_item =  null;
@@ -8,6 +10,7 @@ var start_page = null;
 // one of the above (currently active)
 var current_edit_panel = null;
 
+// needed to
 var user = {
     id: null,
     name: "",
@@ -34,7 +37,19 @@ function on_load() {
     }
 
     // ...and add back the one we want
-    go_to_panel(user_setup);
+    // depends if we already setup the app
+    if (storage.getItem('user-id') === null) {
+        go_to_panel(user_setup);
+    } else {
+        user.id = storage.getItem('user-id');
+        user.name = storage.getItem('user-name');
+        set_user_name(user.name);
+        document.querySelector("#apero-button").classList.remove("hidden");
+        document.querySelector("#edit-panel").classList.add("color-dead");
+        go_to_panel(apero_list);
+        refresh_apero_list();
+    }
+
 
     if (navigator.userAgent.match(/Android/)) {
       document.addEventListener("deviceready", onDeviceReady, false);
@@ -90,6 +105,8 @@ function create_user_click() {
                 console.log("created user " + answer.id);
                 user.id = answer.id;
                 user.name = name;
+                storage.setItem('user-id', answer.id);
+                storage.setItem('user-name', name);
                 set_user_name(name);
                 document.querySelector("#apero-button").classList.remove("hidden");
                 document.querySelector("#edit-panel").classList.add("color-dead");
