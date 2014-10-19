@@ -234,9 +234,8 @@ function show_no_apero_label(show) {
 }
 
 function refresh_apero_list() {
-  remove_all_aperos();
-
   listAperitif(function on_success(apero_array) {
+    remove_all_aperos();
     var i;
 
     if(apero_array.length === 0) {
