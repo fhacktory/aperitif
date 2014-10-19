@@ -144,9 +144,6 @@ function wizard_ok() {
         console.log(error);
       }
     );
-
-    console.log("Let's get some booze!");
-    //go_to_panel(apero_list);
 }
 
 function apero_item_click() {
@@ -166,9 +163,8 @@ function apero_item_click() {
 
 function select_apero_item(apero) {
     var date = new Date(apero.details.created);
-    apero.innerHTML = apero.details.username + " - " + apero.details.location +
-                    "<br>" + date.getHours() + "h" + date.getMinutes() +
-                    "<br>" + apero.details.msg;
+    apero.innerHTML = apero.details.attendees[0].name + " - " + apero.details.location +
+                    "<br>" + apero.details.message;
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
     }
@@ -185,7 +181,7 @@ function append_apero(list_view, apero) {
     var div = document.createElement("div");
     div.setAttribute("class", "apero-item");
     div.addEventListener("click", apero_item_click);
-    div.innerHTML = apero.username + " - " + apero.location;
+    div.innerHTML = apero.attendees[0].name + " - " + apero.location;
     div.details = apero;
     list_view.appendChild(div);
 }

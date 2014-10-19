@@ -17,9 +17,7 @@ html {
     flex-direction: column;
 }
 
-.auto-width { width: auto; }
 .hidden { visibility: hidden; }
-
 
 #test {
     background-color: red;
@@ -51,6 +49,7 @@ html {
     box-shadow: 0px 3px #0f94b5;
     text-align: center;
     margin: 2%;
+    width: 100%;
 
     font-style: italic;
     font-weight: bold;
