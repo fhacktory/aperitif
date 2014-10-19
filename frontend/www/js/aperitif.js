@@ -184,11 +184,15 @@ function apero_item_click() {
     }
     if (this.classList.contains("selected")) {
         unselect_apero_item(this);
-        document.querySelector("#apero-button").innerHTML = "Apéro!";
+        if (!current_apero_id) {
+            document.querySelector("#apero-button").innerHTML = "Apéro!";
+        }
         selected_item = null;
     } else {
         select_apero_item(this);
-        document.querySelector("#apero-button").innerHTML = "Join!";
+        if (!current_apero_id) {
+            document.querySelector("#apero-button").innerHTML = "Join!";
+        }
         selected_item = this;
     }
 }
