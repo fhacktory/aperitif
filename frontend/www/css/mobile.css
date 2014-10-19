@@ -55,7 +55,7 @@ html {
 }
 
 .color-dead {
-    background-color: #ffdead;
+    background-color: #80e5ff;
 }
 
 #edit-panel {
@@ -102,9 +102,15 @@ html {
 
 .apero-item {
     width: 90%;
+    background-color: rgba(102, 206, 233, 1);
     border-radius: 5px;
     padding: 3%;
     margin: 2%;
+}
+
+.apero-item.selected {
+    background-color: white;
+    box-shadow: 0px 3px rgba(102, 206, 233, 1);
 }
 
 .no-apero-item {
@@ -113,11 +119,6 @@ html {
     padding: 3%;
     margin: 1%;
     font-style: italic;
-}
-
-.selected {
-    background-color: white;
-    box-shadow: 0px 3px #999;
 }
 
 .reset-margin {
