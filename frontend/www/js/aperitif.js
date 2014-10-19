@@ -171,7 +171,7 @@ function select_apero_item(apero) {
 }
 
 function unselect_apero_item(apero) {
-    apero.innerHTML = apero.details.username + " - " + apero.details.location;
+    apero.innerHTML = apero.details.attendees[0].name + " - " + apero.details.location;
     if (apero.classList.contains("selected")) {
         apero.classList.remove("selected");
     }
