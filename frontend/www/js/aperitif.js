@@ -148,21 +148,24 @@ function go_to_panel(new_panel) {
     current_edit_panel = new_panel;
 }
 
+var noAperoDiv = document.createElement("div");
+noAperoDiv.setAttribute("class", "no-apero-item");
+noAperoDiv.innerHTML = "No apéritif found :(";
+var noAperoDivVisible = false;
+
+function show_no_apero_label(show) {
+  if(show == noAperoDivVisible) return;
+
+  if(show) {
+    apero_list.appendChild(noAperoDiv);
+  } else {
+    try {apero_list.removeChild(noAperoDiv);}
+    catch(e) {}
+  }
+}
+
 function refresh_apero_list() {
   remove_all_aperos();
-
-  function show_no_apero_label(show) {
-    var noAperoDiv = document.createElement("div");
-    noAperoDiv.setAttribute("class", "no-apero-item");
-    noAperoDiv.innerHTML = "No apéritif found :(";
-
-    if(show) {
-      apero_list.appendChild(noAperoDiv);
-    } else {
-      try {apero_list.removeChild(noAperoDiv);}
-      catch(e) {}
-    }
-  }
 
   listAperitif(function on_success(apero_array) {
     var i;
