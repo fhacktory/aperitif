@@ -163,7 +163,7 @@ function apero_item_click() {
 
 function select_apero_item(apero) {
     var date = new Date(apero.details.created);
-    apero.innerHTML = apero.details.attendees[0].name + " - " + apero.details.location +
+    apero.innerHTML = apero_header(apero.details) +
                     "<br>" + apero.details.message;
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
@@ -171,17 +171,18 @@ function select_apero_item(apero) {
 }
 
 function unselect_apero_item(apero) {
-    apero.innerHTML = apero.details.attendees[0].name + " - " + apero.details.location;
+    apero.innerHTML = apero_header(apero.details);
     if (apero.classList.contains("selected")) {
         apero.classList.remove("selected");
     }
 }
 
 function append_apero(list_view, apero) {
+  console.log(apero);
     var div = document.createElement("div");
     div.setAttribute("class", "apero-item");
     div.addEventListener("click", apero_item_click);
-    div.innerHTML = apero.attendees[0].name + " - " + apero.location;
+    div.innerHTML = apero_header(apero);
     div.details = apero;
     list_view.appendChild(div);
 }
@@ -280,4 +281,13 @@ var refresh_interval = 0;
 
 function refresh_aperos() {
   if(current_edit_panel == apero_list) { refresh_apero_list(); }
+}
+
+function first_attendee_name(apero) {
+  if(apero.attendees.length === 0) return "No attendee";
+  else return apero.attendees[0].name;
+}
+
+function apero_header(apero) {
+  return apero.location + " - " + first_attendee_name(apero);
 }
