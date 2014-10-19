@@ -305,7 +305,6 @@ function refresh_apero_list() {
 
 
 function onDeviceReady() {
-  console.log("device is ready...");
   document.addEventListener("pause", onPause, false);
   document.addEventListener("resume", onResume, false);
 
@@ -313,14 +312,12 @@ function onDeviceReady() {
 }
 
 function onResume() {
-  console.log("device resuming...");
   if(refresh_interval === 0) {
     refresh_interval = setInterval(refresh_aperos, 3000);
   }
 }
 
 function onPause() {
-  console.log("device pausing...");
   clearInterval(refresh_interval);
   refresh_interval = 0;
 }
