@@ -1,10 +1,35 @@
 
+// in the apero_list, currently selected apero
+var selected_item =  null;
+// the different panels
+var apero_list = null;
+var apero_wizard = null;
+var start_page = null;
+// one of the above (currently active)
+var current_edit_panel = null;
+
+// needed to 
+var user = {
+    id: null,
+    name: "",
+}
+
+current_apero_id = null;
+
+// used during user setup
+var valid_name = true;
+
 function on_load() {
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
     user_setup = document.querySelector("#user-setup");
 
     refresh_apero_list();
+
+    //var usr_name = document.querySelector("#user-name-input").value;
+    //valid_name = is_valid_name(usr_name);
+    //console.log("usr name "+ usr_name +" valid: "+ valid_name);
+    typing_user_name();
 
     // remove all panels from the dom...
     var container = document.querySelector("#edit-panel");
@@ -22,39 +47,51 @@ function on_load() {
     apero_list.classList.remove("hidden");
     apero_wizard.classList.remove("hidden");
     user_setup.classList.remove("hidden");
+
 }
 
 function is_valid_name(name) {
-    return !name.match(/^[a-zA-Z0-9_]*$/);
+    return name.length > 0 && !!name.match(/^[a-zA-Z0-9_]*$/);
 }
 
-var valid_name;
 function typing_user_name() {
     var name = document.querySelector("#user-name-input").value;
-    console.log(name);
     var button = document.querySelector("#create-user-button");
     if (is_valid_name(name)) {
         if (!valid_name) {
-            button.classList.remove("green-button");
-            button.classList.add("grey-button");
+            button.classList.remove("grey-button");
+            button.classList.add("green-button");
         }
         valid_name = true;
     } else {
+        console.log("invalid name " + name);
         if (valid_name) {
-            button.classList.remove("grey-button");
-            button.classList.add("green-button");
+            button.classList.remove("green-button");
+            button.classList.add("grey-button");
         }
         valid_name = false;
     }
 }
 
 function create_user_click() {
-    var name = "" + document.getElementById("user-name-input").value;
-    if (name.length > 0) {
-        set_user_name(name);
-        document.querySelector("#apero-button").classList.remove("hidden");
-        document.querySelector("#edit-panel").classList.add("color-dead");
-        go_to_panel(apero_list);
+    var name = "" + document.querySelector("#user-name-input").value;
+    if (is_valid_name(name)) {
+        createUser(name,
+            function(answer) {
+                console.log("created user " + answer.id);
+                user.id = answer.id;
+                user.name = name;
+                set_user_name(name);
+                document.querySelector("#apero-button").classList.remove("hidden");
+                document.querySelector("#edit-panel").classList.add("color-dead");
+                go_to_panel(apero_list);
+            },
+            function(error) {
+                console.log("failed to create user " + name + " " + error);
+            }
+        );
+    } else {
+        console.log("invalid name '"+name+"'");
     }
 }
 
@@ -75,6 +112,26 @@ function apero_click() {
 
 function wizard_cancel() {
     go_to_panel(apero_list);
+}
+
+function wizard_ok() {
+    createAperitif(
+        user.id,
+        document.querySelector("#apero-name-input").value,
+        document.querySelector("#apero-message-input").value,
+        function(answer) {
+          console.log(answer);
+          current_apero_id = answer.id;
+          go_to_panel(apero_list);
+          refresh_apero_list();
+        },
+      function(error) {
+        console.log(error);
+      }
+    );
+
+    console.log("Let's get some booze!");
+    //go_to_panel(apero_list);
 }
 
 function apero_item_click() {
@@ -131,15 +188,6 @@ function remove_all_aperos() {
         list.removeChild(list.firstChild);
     }
 }
-
-// in the apero_list, currently selected apero
-var selected_item =  null;
-// the different panels
-var apero_list = null;
-var apero_wizard = null;
-var start_page = null;
-// one of the above (currently active)
-var current_edit_panel = null;
 
 function go_to_panel(new_panel) {
     if (current_edit_panel == new_panel) {
