@@ -164,6 +164,8 @@ function select_apero_item(apero) {
     if (!apero.classList.contains("selected")) {
         apero.classList.add("selected");
     }
+
+    selected_item = apero;
 }
 
 function unselect_apero_item(apero) {
@@ -173,14 +175,15 @@ function unselect_apero_item(apero) {
     }
 }
 
-function append_apero(list_view, apero) {
-  console.log(apero);
+function append_apero(list_view, apero, andSelect) {
     var div = document.createElement("div");
     div.setAttribute("class", "apero-item");
     div.addEventListener("click", apero_item_click);
     div.innerHTML = apero_header(apero);
     div.details = apero;
     list_view.appendChild(div);
+
+    if(andSelect) select_apero_item(div);
 }
 
 function remove_apero(apero) {
@@ -235,12 +238,15 @@ function refresh_apero_list() {
     remove_all_aperos();
     var i;
 
+    var id_select;
+    if(selected_item) id_select = selected_item.details.id;
+
     if(apero_array.length === 0) {
       show_no_apero_label(true);
     } else {
       show_no_apero_label(false);
       for(i = 0; i < apero_array.length; ++i) {
-        append_apero(apero_list, apero_array[i]);
+        append_apero(apero_list, apero_array[i], apero_array[i].id === id_select);
       }
     }
   },
