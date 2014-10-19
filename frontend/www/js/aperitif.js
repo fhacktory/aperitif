@@ -232,7 +232,7 @@ function apero_item_click() {
 
 function select_apero_item(apero) {
     //var date = new Date(apero.details.created);
-    apero.innerHTML = apero.details.location + " - ";
+    apero.innerHTML = " <b>"+ apero.details.location + "</b> - ";
     for (var i = 0; i < apero.details.attendees.length; ++i) {
         // XXX - should be apero.details.attendees[i].name but need to modify the server
         apero.innerHTML += apero.details.attendees[i] + "  ";
@@ -388,5 +388,5 @@ function first_attendee_name(apero) {
 }
 
 function apero_header(apero) {
-  return apero.location + " - " + first_attendee_name(apero);
+  return "<b>"+apero.location + "</b> - " + first_attendee_name(apero);
 }
