@@ -74,7 +74,7 @@ manageAttendee(
   onfailure // callback function on failure
 );
 
-  manageAttendee(
+manageAttendee(
   '946140ab-5720-11e4-ad82-3c970eb345ba',
   'f0417b2d-5720-11e4-ad82-3c970eb345ba',
   'add',

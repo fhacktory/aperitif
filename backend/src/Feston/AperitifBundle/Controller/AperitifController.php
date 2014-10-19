@@ -104,6 +104,12 @@ class AperitifController extends FOSRestController
             $aperitif->removeAttendee($user);
             $em->flush();
             $data = array('msg' => "User now doesn't attend this event.");
+
+            if ($aperitif->getAttendees()->count() === 0) {
+                $em->remove($aperitif);
+                $em->flush();
+                $data['comment'] = "Aperitif deleted.";
+            }
         }
         $view = $this->view($data, 200);
 
