@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Feston\AperitifBundle\Entity\Aperitif;
+use Feston\AperitifBundle\Entity\User;
 
 class AperitifController extends FOSRestController
 {
