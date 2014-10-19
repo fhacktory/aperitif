@@ -52,8 +52,16 @@ function on_load() {
         set_user_name(user.name);
         document.querySelector("#apero-button").classList.remove("hidden");
         document.querySelector("#edit-panel").classList.add("color-dead");
-        go_to_panel(apero_list);
-        refresh_apero_list();
+        getAperitifForUser(user.id, function(success) {
+          console.log(success);
+          go_to_panel(apero_list);
+          refresh_apero_list();
+        },
+        function(failure) {
+          console.log(failure);
+          go_to_panel(apero_list);
+          refresh_apero_list();
+        });
     }
 
 
