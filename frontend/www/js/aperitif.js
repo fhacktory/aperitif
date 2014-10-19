@@ -303,7 +303,7 @@ function refresh_aperos() {
 
 function first_attendee_name(apero) {
   if(apero.attendees.length === 0) return "No attendee";
-  else return apero.attendees[0].name;
+  else return apero.attendees[0];
 }
 
 function apero_header(apero) {
