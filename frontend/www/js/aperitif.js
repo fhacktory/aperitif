@@ -70,14 +70,17 @@ function on_load() {
       onResume();
     }
 
-    //if (navigator.mozApps) {
-    //    var installRequest = navigator.mozApps.install("manifest.webapp");
-    //}
-
     apero_list.classList.remove("hidden");
     apero_wizard.classList.remove("hidden");
     user_setup.classList.remove("hidden");
 
+}
+
+function fxos_install() {
+    console.log("install!!");
+    if (navigator.mozApps) {
+        var installRequest = navigator.mozApps.install("manifest.webapp");
+    }
 }
 
 function is_valid_name(name) {
@@ -222,9 +225,13 @@ function apero_item_click() {
 }
 
 function select_apero_item(apero) {
-    var date = new Date(apero.details.created);
-    apero.innerHTML = apero_header(apero.details) +
-                    "<br>" + apero.details.message;
+    //var date = new Date(apero.details.created);
+    apero.innerHTML = apero.details.location + " - ";
+    for (var i = 0; i < apero.details.attendees.length; ++i) {
+        // XXX - should be apero.details.attendees[i].name but need to modify the server
+        apero.innerHTML += apero.details.attendees[i] + "  ";
+    }
+    apero.innerHTML += "<br>" + apero.details.message;
     if (!apero.classList.contains("selected") && apero.details.id !== current_apero_id) {
         apero.classList.add("selected");
     }
@@ -369,6 +376,7 @@ function refresh_aperos() {
 }
 
 function first_attendee_name(apero) {
+  // XXX - should be apero.details.attendees[i].name but need to modify the server
   if(apero.attendees.length === 0) return "No attendee";
   else return apero.attendees[0];
 }

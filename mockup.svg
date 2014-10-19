@@ -101,9 +101,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="150.77319"
-     inkscape:cy="465.28477"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="243.39435"
+     inkscape:cy="672.97083"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -967,25 +967,34 @@
        ry="10" />
     <path
        sodipodi:type="arc"
-       style="fill:#cccccc;fill-opacity:1;stroke:none"
+       style="fill:#dfdfdf;fill-opacity:1;stroke:none"
        id="path4017"
        sodipodi:cx="171.96428"
        sodipodi:cy="367.18362"
        sodipodi:rx="35"
        sodipodi:ry="35"
        d="m 206.96428,367.18362 a 35,35 0 1 1 -70,0 35,35 0 1 1 70,0 z"
-       transform="translate(-2,0)" />
+       transform="translate(-2,0)"
+       inkscape:export-filename="/home/nical/dev/web/aperitif/frontend/www/img/install-256.png"
+       inkscape:export-xdpi="329.14001"
+       inkscape:export-ydpi="329.14001" />
     <path
        inkscape:connector-curvature="0"
        id="path4021"
        d="m 163.70536,340.18361 0,31.47321 -14.40179,0 1.8085,1.98438 18.88839,16.89955 18.87156,-16.97121 1.9499,-1.91272 -14.52679,0 0,-31.47321 z"
-       style="fill:#808080;stroke:none"
-       sodipodi:nodetypes="cccccccccc" />
+       style="fill:#acacac;stroke:none;fill-opacity:1"
+       sodipodi:nodetypes="cccccccccc"
+       inkscape:export-filename="/home/nical/dev/web/aperitif/frontend/www/img/install-256.png"
+       inkscape:export-xdpi="329.14001"
+       inkscape:export-ydpi="329.14001" />
     <path
        style="fill:#ffffff;stroke:none"
        d="m 163.70536,342.18361 0,31.47321 -12.58929,0 18.88393,18.88393 18.88393,-18.88393 -12.58929,0 0,-31.47321 z"
        id="path4019"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nical/dev/web/aperitif/frontend/www/img/install-256.png"
+       inkscape:export-xdpi="329.14001"
+       inkscape:export-ydpi="329.14001" />
     <g
        id="g4029"
        transform="matrix(0.65654814,0,0,0.65654814,156.81037,309.32054)"

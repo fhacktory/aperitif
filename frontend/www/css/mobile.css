@@ -63,7 +63,7 @@ html {
     border-radius: 5px;
     margin-left: 2%;
     margin-right: 2%;
-    overflow: scroll;
+    overflow: auto;
     height: 100%
 }
 
