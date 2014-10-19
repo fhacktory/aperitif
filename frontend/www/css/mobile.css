@@ -113,6 +113,11 @@ html {
     box-shadow: 0px 3px rgba(102, 206, 233, 1);
 }
 
+.current-apero-item {
+    background-color: green;
+    box-shadow: 0px 3px black;
+}
+
 .no-apero-item {
     width: 92%;
     border-radius: 5px;

@@ -225,8 +225,12 @@ function select_apero_item(apero) {
     var date = new Date(apero.details.created);
     apero.innerHTML = apero_header(apero.details) +
                     "<br>" + apero.details.message;
-    if (!apero.classList.contains("selected")) {
+    if (!apero.classList.contains("selected") && apero.details.id !== current_apero_id) {
         apero.classList.add("selected");
+    }
+
+    if (apero.details.id === current_apero_id) {
+        apero.classList.add("current-apero-item");
     }
 
     selected_item = apero;
@@ -236,10 +240,16 @@ function unselect_apero_item() {
     if (!selected_item) {
         return;
     }
-    selected_item.innerHTML = apero_header(selected_item.details);
     if (selected_item.classList.contains("selected")) {
         selected_item.classList.remove("selected");
     }
+
+    if (selected_item.details.id === current_apero_id) {
+        selected_item.classList.add("current-apero-item");
+    } else {
+        selected_item.innerHTML = apero_header(selected_item.details);
+    }
+
     selected_item = null;
 }
 
@@ -251,7 +261,7 @@ function append_apero(list_view, apero, andSelect) {
     div.details = apero;
     list_view.appendChild(div);
 
-    if(andSelect) select_apero_item(div);
+    if (andSelect) { select_apero_item(div); }
 }
 
 function remove_apero(apero) {
@@ -319,7 +329,11 @@ function refresh_apero_list() {
     } else {
       show_no_apero_label(false);
       for(i = 0; i < apero_array.length; ++i) {
+        var is_current = apero_array[i].id === current_apero_id;
         append_apero(apero_list, apero_array[i], apero_array[i].id === id_select);
+        if (is_current) {
+            apero_list.lastChild.classList.add("current-apero-item");
+        }
       }
     }
   },
