@@ -8,6 +8,35 @@ listAperitif(function(data) {
   console.log(e);
 });
 
+[
+  {
+    "id": "810a3392-5725-11e4-ad82-3c970eb345ba",
+    "created": "2014-10-19T02:18:51+0200",
+    "location": "Le Milord",
+    "message": "Rendez-vous à 20h.",
+    "attendees": [
+      "Papa Delta"
+    ]
+  },
+  {
+    "id": "896151f7-5725-11e4-ad82-3c970eb345ba",
+    "created": "2014-10-19T02:19:05+0200",
+    "location": "Nimporte Quoi",
+    "message": "Rendez-vous à 20h.",
+    "attendees": []
+  },
+  {
+    "id": "946140ab-5720-11e4-ad82-3c970eb345ba",
+    "created": "2014-10-19T01:43:36+0200",
+    "location": "Caves Pop",
+    "message": "Rendez-vous à 20h.",
+    "attendees": [
+      "Papa Delta",
+      "Raphael Lustin"
+    ]
+  }
+]
+
 
 Example #2 - create a aperitif
 
