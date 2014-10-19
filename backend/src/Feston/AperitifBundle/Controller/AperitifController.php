@@ -15,7 +15,21 @@ class AperitifController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $aperitifs = $em->getRepository('FestonAperitifBundle:Aperitif')->findAll();
 
-        $view = $this->view($aperitifs, 200);
+        $data = array();
+        foreach ($aperitifs as $apero) {
+            $attendees = array();
+            foreach ($apero->getAttendees() as $attendee) {
+                $attendees[] = $attendee->getName();
+            }
+            $data[] = array(
+                'id' => $apero->getId(),
+                'created' => $apero->getCreated(),
+                'location' => $apero->getLocation(),
+                'message' => $apero->getMessage(),
+                'attendees' => $attendees,
+            );
+        }
+        $view = $this->view($data, 200);
 
         return $this->handleView($view);
     }
@@ -63,15 +77,6 @@ class AperitifController extends FOSRestController
             return $this->handleView($view);
         }
 
-        $userId = $request->request->get('userId', null);
-        $user = $em->getRepository('FestonAperitifBundle:User')->find($userId);
-        if (!$user) {
-            $data = array('msg' => "User not found.");
-            $view = $this->view($data, 404);
-
-            return $this->handleView($view);
-        }
-
         $action = $request->request->get('action', null);
         $authorizedActions = array('add', 'remove');
         if (!in_array($action, $authorizedActions)) {
@@ -79,6 +84,15 @@ class AperitifController extends FOSRestController
             $view = $this->view($data, 400);
 
             return $this->handleView($view);
+        }
+
+        $userId = $request->request->get('userId', null);
+        $user = $em->getRepository('FestonAperitifBundle:User')->find($userId);
+        if (!$user) {
+            $name = $request->request->get('name', 'Unamed');
+            $user = new User($name);
+            $em->persist($user);
+            $em->flush();
         }
 
         if ($action == 'add') {
