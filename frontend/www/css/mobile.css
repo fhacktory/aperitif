@@ -114,8 +114,8 @@ html {
 }
 
 .current-apero-item {
-    background-color: green;
-    box-shadow: 0px 3px black;
+    background-color: rgba(106, 221, 107, 1);
+    box-shadow: 0px 3px rgba(13, 113, 7, 1);
 }
 
 .no-apero-item {
