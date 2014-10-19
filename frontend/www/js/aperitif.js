@@ -12,7 +12,7 @@ var current_edit_panel = null;
 var user = {
     id: null,
     name: "",
-}
+};
 
 current_apero_id = null;
 
