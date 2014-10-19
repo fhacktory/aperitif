@@ -93,8 +93,9 @@ html {
     width: 96%;
     margin: 2%;
     margin-bottom: 4%;
-    padding: 2%;
+    padding: 3%;
     border-radius: 5px;
+    font-size: 2em;
 }
 
 #apero-list {
@@ -186,6 +187,7 @@ input {
     border-radius: 6px;
     margin-top: 2%;
     height: 32px;
+    font-size: 1.5em;
 }
 
 #apero-cancel {
