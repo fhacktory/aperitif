@@ -10,6 +10,8 @@ var start_page = null;
 // one of the above (currently active)
 var current_edit_panel = null;
 
+var apero_button;
+
 // needed to
 var user = {
     id: null,
@@ -25,6 +27,8 @@ function on_load() {
     apero_list = document.querySelector("#apero-list");
     apero_wizard = document.querySelector("#apero-wizard");
     user_setup = document.querySelector("#user-setup");
+
+    apero_button = document.querySelector("#apero-button");
 
     apero_list.on_show = show_apero_list;
 
@@ -110,7 +114,7 @@ function create_user_click() {
                 storage.setItem('user-id', answer.id);
                 storage.setItem('user-name', name);
                 set_user_name(name);
-                document.querySelector("#apero-button").classList.remove("hidden");
+                apero_button.classList.remove("hidden");
                 document.querySelector("#edit-panel").classList.add("color-dead");
                 go_to_panel(apero_list);
             },
@@ -130,13 +134,14 @@ function set_user_name(name) {
 function apero_click() {
     console.log("Apéro!!");
     if (current_apero_id) {
-        manageAttendee(selected_item.details.id, user.id, user.name, 'remove',
+        console.log("leaving the apero "+current_apero_id);
+        manageAttendee(current_apero_id, user.id, user.name, 'remove',
             function(success) {refresh_apero_list();},
             function(fail) {console.log(fail);});
         current_apero_id = null;
-        button.classList.remove("red-button");
-        button.classList.add("green-button");
-        button.innerHTML("Apéro!");
+        apero_button.classList.remove("red-button");
+        apero_button.classList.add("green-button");
+        apero_button.innerHTML = "Apéro!";
     } else if (current_edit_panel == apero_list) {
         if (!selected_item) {
             go_to_panel(apero_wizard);
@@ -149,7 +154,6 @@ function apero_click() {
 }
 
 function show_apero_list() {
-    apero_button = document.querySelector("#apero-button");
     if (current_apero_id) {
         if (!apero_button.classList.contains("red-button")) {
             apero_button.classList.add("red-button");
