@@ -165,6 +165,10 @@ function apero_click() {
                 function(answer) {
                     console.log("answer: ");
                     console.log(answer);
+                    if (answer.newUserId != null) {
+                        user.id = answer.newUserId;
+                        storage.setItem('user-id', answer.newUserId);
+                    }
                     current_apero_id = selected_item.details.id;
                     update_apero_button_state();
                     refresh_apero_list();

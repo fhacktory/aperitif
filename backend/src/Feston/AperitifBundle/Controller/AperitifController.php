@@ -94,16 +94,17 @@ class AperitifController extends FOSRestController
             $user = new User($name);
             $em->persist($user);
             $em->flush();
+            $data = array('newUserId' => $user->getId());
         }
 
         if ($action == 'add') {
             $aperitif->addAttendee($user);
             $em->flush();
-            $data = array('msg' => "User now attends this event.");
+            $data['msg'] = "User now attends this event.";
         } elseif ($action == 'remove') {
             $aperitif->removeAttendee($user);
             $em->flush();
-            $data = array('msg' => "User now doesn't attend this event.");
+            $data['msg'] = "User now doesn't attend this event.";
 
             if ($aperitif->getAttendees()->count() === 0) {
                 $em->remove($aperitif);
