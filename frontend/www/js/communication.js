@@ -9,12 +9,12 @@ listAperitif(function(data) {
 });
 
 
-
 Example #2 - create a aperitif
 
 createAperitif(
-  'papa delta',
-  'caves pop',
+  '8cdc972b-571a-11e4-ad82-3c970eb345ba',
+  'Caves Pop',
+  'Rendez-vous à 20h.',
   function(data) {
     console.log(data);
   },
@@ -35,10 +35,24 @@ createUser(
   }
 );
 
+Example #4 - add an attendee to an aperitif
+
+manageAttendee(
+  '946140ab-5720-11e4-ad82-3c970eb345ba',
+  'f0417b2d-5720-11e4-ad82-3c970eb345ba',
+  'add',
+  function(data) {
+    console.log(data);
+  },
+  function(e) {
+    console.log(e);
+  }
+);
+
 **/
 
 function listAperitif(onsuccess, onfailure) {
-  var url = "http://aperitif.local/v1/aperitif.json";
+  var url = "http://aperitif.feston.me/v1/aperitif.json";
   XHR(url, "GET", null, function(data) {
     onsuccess(JSON.parse(data));
   },
@@ -47,13 +61,14 @@ function listAperitif(onsuccess, onfailure) {
   });
 }
 
-function createAperitif(username, location, onsuccess, onfailure) {
+function createAperitif(userId, location, message, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.local/v1/aperitif.json";
+  var url = "http://aperitif.feston.me/v1/aperitif.json";
 
   var formData = new FormData();
-  formData.append("username", username);
+  formData.append("userId", userId);
   formData.append("location", location);
+  formData.append("message", message);
 
   XHR(url, "POST", formData, function(data) {
     onsuccess(JSON.parse(data));
@@ -65,10 +80,26 @@ function createAperitif(username, location, onsuccess, onfailure) {
 
 function createUser(name, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
-  var url = "http://aperitif.local/v1/user.json";
+  var url = "http://aperitif.feston.me/v1/user.json";
 
   var formData = new FormData();
   formData.append("name", name);
+
+  XHR(url, "POST", formData, function(data) {
+    onsuccess(JSON.parse(data));
+  },
+  function(e) {
+    onfailure(e);
+  });
+}
+
+function manageAttendee(aperitifId, userId, action, onsuccess, onfailure) {
+  var req = new XMLHttpRequest();
+  var url = "http://aperitif.feston.me/v1/aperitif/" + aperitifId + ".json";
+
+  var formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("action", action);
 
   XHR(url, "POST", formData, function(data) {
     onsuccess(JSON.parse(data));
