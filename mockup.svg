@@ -72,6 +72,27 @@
          y="261.56366"
          ry="0" />
     </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4009-6"
+       id="linearGradient4015-4"
+       x1="66.816154"
+       y1="363.59937"
+       x2="66.637589"
+       y2="332.26007"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4009-6">
+      <stop
+         style="stop-color:#dc9742;stop-opacity:1"
+         offset="0"
+         id="stop4011-8" />
+      <stop
+         style="stop-color:#ffc379;stop-opacity:1"
+         offset="1"
+         id="stop4013-1" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -81,8 +102,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
-     inkscape:cx="358.99893"
-     inkscape:cy="294.04077"
+     inkscape:cx="150.77319"
+     inkscape:cy="465.28477"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -113,6 +134,19 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <path
+       sodipodi:type="arc"
+       style="fill:#b7f7ae;fill-opacity:0;stroke:none"
+       id="path4208"
+       sodipodi:cx="-57.6875"
+       sodipodi:cy="366.54968"
+       sodipodi:rx="29.8125"
+       sodipodi:ry="29.8125"
+       d="m -27.875,366.54968 a 29.8125,29.8125 0 1 1 -59.625,0 29.8125,29.8125 0 1 1 59.625,0 z"
+       transform="matrix(1.0754717,0,0,1.0754717,5.43956,-30.039127)"
+       inkscape:export-filename="/home/nical/dev/web/aperitif/frontend/www/img/beer-128.png"
+       inkscape:export-xdpi="179.64912"
+       inkscape:export-ydpi="179.64912" />
     <path
        transform="matrix(1.2763819,0,0,1.2763819,1.9200516,-91.730088)"
        d="m 83.968929,356.49335 a 25.127544,25.127544 0 1 1 -50.255089,0 25.127544,25.127544 0 1 1 50.255089,0 z"
@@ -1183,5 +1217,36 @@
          x="1066.7006"
          id="tspan4122"
          sodipodi:role="line">Leave apéro</tspan></text>
+    <g
+       id="g3981-7"
+       transform="translate(-120.78037,25.267859)"
+       inkscape:export-filename="/home/nical/dev/web/aperitif/logo-256.png"
+       inkscape:export-xdpi="358.48685"
+       inkscape:export-ydpi="358.48685">
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path3859-8-6"
+         d="m 50.834013,330.04075 c 15,-5 20.000001,5 30.000001,0 l -2.71478,34.8106 -23.812821,-0.0631 z"
+         style="fill:url(#linearGradient4015-4);fill-opacity:1;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path3861-6-0"
+         d="m 51.347403,329.92914 c 13.03572,-5.71429 18.857121,4.73915 28.946411,0.36415 -10.62501,5.71429 -17.961101,-3.20127 -28.946411,-0.36415 z"
+         style="fill:#ff6600;stroke:none" />
+      <path
+         style="fill:#c95406;fill-opacity:1;stroke:none"
+         d="m 51.410533,330.30797 c 12.59378,-2.17875 10.3971,3.79214 28.883281,0.30102 -20.284591,6.34564 -18.529311,-0.36022 -28.883281,-0.30102 z"
+         id="path3863-4-6"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         sodipodi:nodetypes="cccssssccc"
+         inkscape:connector-curvature="0"
+         id="path3857-1-9"
+         d="m 50.834013,315.04075 0,5 c -2.602447,2.79151 -2.253811,7.55714 0,10 0,0 3.03571,25.35714 3.03571,30.35714 0,5 0,5.00001 5,5.00001 5,0 9.64286,-0.35715 14.642861,-0.35715 5,0 5,0 5,-5 0,-5 2.32143,-30 2.32143,-30 2.204544,-2.43968 2.37034,-7.65353 0,-10 l 0,-5"
+         style="fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
   </g>
 </svg>

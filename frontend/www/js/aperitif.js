@@ -30,7 +30,7 @@ function on_load() {
 
     apero_button = document.querySelector("#apero-button");
 
-    apero_list.on_show = show_apero_list;
+    apero_list.on_show = update_apero_button_state;
 
     refresh_apero_list();
 
@@ -132,6 +132,9 @@ function set_user_name(name) {
 }
 
 function apero_click() {
+    if (current_edit_panel == apero_wizard) {
+        return;
+    }
     console.log("Apéro!!");
     if (current_apero_id) {
         console.log("leaving the apero "+current_apero_id);
@@ -139,31 +142,40 @@ function apero_click() {
             function(success) {refresh_apero_list();},
             function(fail) {console.log(fail);});
         current_apero_id = null;
-        apero_button.classList.remove("red-button");
-        apero_button.classList.add("green-button");
-        apero_button.innerHTML = "Apéro!";
+        unselect_apero_item();
+        selected_item = null;
+        update_apero_button_state();
     } else if (current_edit_panel == apero_list) {
         if (!selected_item) {
             go_to_panel(apero_wizard);
         } else {
             manageAttendee(selected_item.details.id, user.id, user.name, 'add',
-                function(success) {refresh_apero_list();},
-                function(fail) {console.log(fail);});
+                function(answer) {
+                    console.log("answer: ");
+                    console.log(answer);
+                    current_apero_id = selected_item.details.id;
+                    update_apero_button_state();
+                    refresh_apero_list();
+                },
+                function(fail) {console.log(fail);}
+            );
         }
     }
 }
 
-function show_apero_list() {
+function update_apero_button_state() {
     if (current_apero_id) {
-        if (!apero_button.classList.contains("red-button")) {
-            apero_button.classList.add("red-button");
-            apero_button.classList.remove("blue-button");
-            apero_button.innerHTML = "Leave apéro";
-        }
+        apero_button.classList.add("red-button");
+        apero_button.classList.remove("blue-button");
+        apero_button.classList.remove("green-button");
+        apero_button.innerHTML = "Leave apéro";
     } else {
-        if (apero_button.classList.contains("red-button")) {
-            apero_button.classList.remove("red-button");
-            apero_button.classList.add("blue-button");
+        apero_button.classList.remove("red-button");
+        apero_button.classList.remove("green-button");
+        apero_button.classList.add("blue-button");
+        if (selected_item) {
+            apero_button.innerHTML = "Join!";
+        } else {
             apero_button.innerHTML = "Apéro!";
         }
     }
@@ -180,7 +192,7 @@ function wizard_ok() {
         document.querySelector("#apero-message-input").value,
         function(answer) {
           console.log(answer);
-          current_apero_id = answer.id;
+          current_apero_id = answer.id || null;
           go_to_panel(apero_list);
           refresh_apero_list();
         },
@@ -192,10 +204,10 @@ function wizard_ok() {
 
 function apero_item_click() {
     if (selected_item && selected_item != this) {
-        unselect_apero_item(selected_item);
+        unselect_apero_item();
     }
     if (this.classList.contains("selected")) {
-        unselect_apero_item(this);
+        unselect_apero_item();
         if (!current_apero_id) {
             document.querySelector("#apero-button").innerHTML = "Apéro!";
         }
@@ -220,11 +232,15 @@ function select_apero_item(apero) {
     selected_item = apero;
 }
 
-function unselect_apero_item(apero) {
-    apero.innerHTML = apero_header(apero.details);
-    if (apero.classList.contains("selected")) {
-        apero.classList.remove("selected");
+function unselect_apero_item() {
+    if (!selected_item) {
+        return;
     }
+    selected_item.innerHTML = apero_header(selected_item.details);
+    if (selected_item.classList.contains("selected")) {
+        selected_item.classList.remove("selected");
+    }
+    selected_item = null;
 }
 
 function append_apero(list_view, apero, andSelect) {
@@ -315,7 +331,6 @@ function refresh_apero_list() {
 
 
 function onDeviceReady() {
-  console.log("device is ready...");
   document.addEventListener("pause", onPause, false);
   document.addEventListener("resume", onResume, false);
 
@@ -323,14 +338,12 @@ function onDeviceReady() {
 }
 
 function onResume() {
-  console.log("device resuming...");
   if(refresh_interval === 0) {
     refresh_interval = setInterval(refresh_aperos, 3000);
   }
 }
 
 function onPause() {
-  console.log("device pausing...");
   clearInterval(refresh_interval);
   refresh_interval = 0;
 }
