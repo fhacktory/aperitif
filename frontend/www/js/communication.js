@@ -130,12 +130,13 @@ function createUser(name, onsuccess, onfailure) {
   });
 }
 
-function manageAttendee(aperitifId, userId, action, onsuccess, onfailure) {
+function manageAttendee(aperitifId, userId, userName, action, onsuccess, onfailure) {
   var req = new XMLHttpRequest();
   var url = "http://aperitif.feston.me/v1/aperitif/" + aperitifId + ".json";
 
   var formData = new FormData();
   formData.append("userId", userId);
+  formData.append("name", userName);
   formData.append("action", action);
 
   XHR(url, "POST", formData, function(data) {

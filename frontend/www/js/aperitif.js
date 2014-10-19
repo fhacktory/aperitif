@@ -133,7 +133,7 @@ function apero_click() {
         if (!selected_item) {
             go_to_panel(apero_wizard);
         } else {
-            manageAttendee(selected_item.details.id, user.id, 'add',
+            manageAttendee(selected_item.details.id, user.id, user.name, 'add',
                 function(success) {refresh_apero_list();},
                 function(fail) {console.log(fail);});
         }
