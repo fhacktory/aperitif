@@ -8,7 +8,6 @@ var start_page = null;
 // one of the above (currently active)
 var current_edit_panel = null;
 
-// needed to 
 var user = {
     id: null,
     name: "",
@@ -17,7 +16,7 @@ var user = {
 current_apero_id = null;
 
 // used during user setup
-var valid_name = true;
+var valid_input = true;
 
 function on_load() {
     apero_list = document.querySelector("#apero-list");
@@ -26,9 +25,6 @@ function on_load() {
 
     refresh_apero_list();
 
-    //var usr_name = document.querySelector("#user-name-input").value;
-    //valid_name = is_valid_name(usr_name);
-    //console.log("usr name "+ usr_name +" valid: "+ valid_name);
     typing_user_name();
 
     // remove all panels from the dom...
@@ -71,18 +67,18 @@ function typing_user_name() {
     var name = document.querySelector("#user-name-input").value;
     var button = document.querySelector("#create-user-button");
     if (is_valid_name(name)) {
-        if (!valid_name) {
+        if (!valid_input) {
             button.classList.remove("grey-button");
             button.classList.add("green-button");
         }
-        valid_name = true;
+        valid_input = true;
     } else {
         console.log("invalid name " + name);
-        if (valid_name) {
+        if (valid_input) {
             button.classList.remove("green-button");
             button.classList.add("grey-button");
         }
-        valid_name = false;
+        valid_input = false;
     }
 }
 
@@ -235,9 +231,8 @@ function show_no_apero_label(show) {
 }
 
 function refresh_apero_list() {
-  remove_all_aperos();
-
   listAperitif(function on_success(apero_array) {
+    remove_all_aperos();
     var i;
 
     if(apero_array.length === 0) {
