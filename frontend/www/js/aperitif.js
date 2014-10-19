@@ -197,7 +197,7 @@ function onDeviceReady() {
 function onResume() {
   console.log("device resuming...");
   if(refresh_interval === 0) {
-    refresh_interval = setInterval(refresh_aperos, 500);
+    refresh_interval = setInterval(refresh_aperos, 3000);
   }
 }
 
@@ -210,5 +210,5 @@ function onPause() {
 var refresh_interval = 0;
 
 function refresh_aperos() {
-  // if we are in state "join" then fetch the list of user of the apero we're in
+  if(current_edit_panel == apero_list) { refresh_apero_list(); }
 }
