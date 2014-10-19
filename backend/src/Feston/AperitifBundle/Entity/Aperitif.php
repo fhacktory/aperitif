@@ -44,7 +44,7 @@ class Aperitif
     private $message;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Feston\AperitifBundle\Entity\User")
+     * @ORM\OneToMany(targetEntity="Feston\AperitifBundle\Entity\User", mappedBy="aperitif")
      */
     protected $attendees;
 
@@ -144,6 +144,7 @@ class Aperitif
     public function addAttendee(\Feston\AperitifBundle\Entity\User $attendee)
     {
         $this->attendees[] = $attendee;
+        $attendee->setAperitif($this);
 
         return $this;
     }
@@ -156,6 +157,7 @@ class Aperitif
     public function removeAttendee(\Feston\AperitifBundle\Entity\User $attendee)
     {
         $this->attendees->removeElement($attendee);
+        $attendee->setAperitif(null);
     }
 
     /**

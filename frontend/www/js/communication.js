@@ -74,10 +74,22 @@ manageAttendee(
   onfailure // callback function on failure
 );
 
-manageAttendee(
+  manageAttendee(
   '946140ab-5720-11e4-ad82-3c970eb345ba',
   'f0417b2d-5720-11e4-ad82-3c970eb345ba',
   'add',
+  function(data) {
+    console.log(data);
+  },
+  function(e) {
+    console.log(e);
+  }
+);
+
+Example #5 - get aperitif for an user
+
+getAperitifForUser(
+  'e84bd8e4-5764-11e4-ba04-b6d714dd19e4',
   function(data) {
     console.log(data);
   },
@@ -123,6 +135,18 @@ function createUser(name, onsuccess, onfailure) {
   formData.append("name", name);
 
   XHR(url, "POST", formData, function(data) {
+    onsuccess(JSON.parse(data));
+  },
+  function(e) {
+    onfailure(e);
+  });
+}
+
+function getAperitifForUser(userId, onsuccess, onfailure) {
+  var req = new XMLHttpRequest();
+  var url = "http://aperitif.feston.me/v1/user/" + userId + "/aperitif.json";
+
+  XHR(url, "GET", null, function(data) {
     onsuccess(JSON.parse(data));
   },
   function(e) {

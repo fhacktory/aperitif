@@ -35,6 +35,12 @@ class User
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Feston\AperitifBundle\Entity\Aperitif", inversedBy="attendees")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $aperitif;
+
     public function __construct($name)
     {
         $this->created = new \DateTime();
@@ -95,5 +101,28 @@ class User
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set aperitif
+     *
+     * @param \Feston\AperitifBundle\Entity\Aperitif $aperitif
+     * @return User
+     */
+    public function setAperitif(\Feston\AperitifBundle\Entity\Aperitif $aperitif = null)
+    {
+        $this->aperitif = $aperitif;
+
+        return $this;
+    }
+
+    /**
+     * Get aperitif
+     *
+     * @return \Feston\AperitifBundle\Entity\Aperitif
+     */
+    public function getAperitif()
+    {
+        return $this->aperitif;
     }
 }

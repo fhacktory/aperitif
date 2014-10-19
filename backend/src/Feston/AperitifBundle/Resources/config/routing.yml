@@ -21,3 +21,9 @@ feston_aperitif_user_create:
     defaults: { _controller: FestonAperitifBundle:User:create }
     requirements:
         _method:  POST
+
+feston_aperitif_user_aperitif:
+    pattern: /v1/user/{id}/aperitif.{_format}
+    defaults: { _controller: FestonAperitifBundle:User:aperitif }
+    requirements:
+        _method:  GET
