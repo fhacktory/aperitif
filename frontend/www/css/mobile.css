@@ -41,12 +41,10 @@ html {
 #apero-button {
     flex: 0 0 10%;
     border-radius: 5px;
-    background-image: url(../img/logo-256.png);
-    background-size: 20%;
+    background-image: url(../img/beer-128.png);
+    background-size: 10vh;
     background-repeat: no-repeat;
     background-position: 2%, 2%;
-    background-color: #80e5ff;
-    box-shadow: 0px 3px #0f94b5;
     text-align: center;
     margin: 2%;
     width: 96%;
@@ -54,17 +52,6 @@ html {
     font-style: italic;
     font-weight: bold;
     font-size: 5vh;
-    color: #0055d4;
-}
-
-#apero-button:active {
-    background-color: rgba(208, 244, 254, 1);
-    box-shadow: 0px 3px #80e5ff;
-}
-
-#logo-img {
-    width: 20%;
-    float: left;
 }
 
 .color-dead {
@@ -108,7 +95,6 @@ html {
     margin-bottom: 4%;
     padding: 2%;
     border-radius: 5px;
-    font-weight: bold;
 }
 
 #apero-list {
@@ -177,6 +163,7 @@ html {
 
 button {
     border: none;
+    font-weight: bold;
 }
 
 input {
@@ -198,6 +185,7 @@ input {
 #apero-cancel {
     margin-right: 1%;
 }
+
 #apero-ok {
     margin-left: 1%;
 }
@@ -207,19 +195,31 @@ input {
     box-shadow: 0px 3px rgba(120, 120, 120, 1);
 }
 
-.red-button {
-    background-color: rgba(254, 118, 44, 1);
-    box-shadow: 0px 3px rgba(158, 44, 44, 1);
+.blue-button {
+    color: #0055d4;
+    background-color: #80e5ff;
+    box-shadow: 0px 3px #0f94b5;
 }
 
-.green-button {
-    background-color: rgba(106, 221, 107, 1);
-    box-shadow: 0px 3px rgba(13, 113, 7, 1);
+.blue-button:active {
+    background-color: rgba(208, 244, 254, 1);
+    box-shadow: 0px 3px #80e5ff;
+}
+
+.red-button {
+    color: #d41200;
+    background-color: rgba(254, 118, 44, 1);
+    box-shadow: 0px 3px rgba(158, 44, 44, 1);
 }
 
 .red-button:active {
     background-color: rgba(255, 206, 150, 1);
     box-shadow: 0px 3px rgba(249, 141, 50, 1);
+}
+
+.green-button {
+    background-color: rgba(106, 221, 107, 1);
+    box-shadow: 0px 3px rgba(13, 113, 7, 1);
 }
 
 .green-button:active {

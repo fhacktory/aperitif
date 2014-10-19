@@ -26,6 +26,8 @@ function on_load() {
     apero_wizard = document.querySelector("#apero-wizard");
     user_setup = document.querySelector("#user-setup");
 
+    apero_list.on_show = show_apero_list;
+
     refresh_apero_list();
 
     typing_user_name();
@@ -138,6 +140,23 @@ function apero_click() {
     }
 }
 
+function show_apero_list() {
+    apero_button = document.querySelector("#apero-button");
+    if (current_apero_id) {
+        if (!apero_button.classList.contains("red-button")) {
+            apero_button.classList.add("red-button");
+            apero_button.classList.remove("blue-button");
+            apero_button.innerHTML = "Leave apéro";
+        }
+    } else {
+        if (apero_button.classList.contains("red-button")) {
+            apero_button.classList.remove("red-button");
+            apero_button.classList.add("blue-button");
+            apero_button.innerHTML = "Apéro!";
+        }
+    }
+}
+
 function wizard_cancel() {
     go_to_panel(apero_list);
 }
@@ -226,12 +245,17 @@ function go_to_panel(new_panel) {
         current_edit_panel.on_hide();
     }
 
+
     var container = document.querySelector("#edit-panel");
     if (current_edit_panel) {
         container.removeChild(current_edit_panel);
     }
     container.appendChild(new_panel);
     current_edit_panel = new_panel;
+
+    if (new_panel && new_panel.on_show) {
+        new_panel.on_show();
+    }
 }
 
 var noAperoDiv = document.createElement("div");
